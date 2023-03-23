@@ -72,7 +72,6 @@ body{
 }
 
 .logo-text-logo.active {
-  transform: scale(75%);
   content: url('../assets/Images/aa_logo_text.png');
 }
 
@@ -164,11 +163,12 @@ nav a:hover {
 .content {
   letter-spacing: .005em;
   color: #f0e6d2;
-  font-size: 16px;
+  font-size: 18px;
+  font-stretch: 100%;
   text-align: left;
   opacity: contentOpacity;
   transition: opacity 1s ease;
-  width: 650px;
+  width: 750px;
   margin: 0 auto;
   margin-top: 100vh;
   margin-bottom: 100px;

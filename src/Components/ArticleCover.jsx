@@ -1,27 +1,26 @@
 import React from 'react';
 
-const StoryCover = ({ story }) => {
+const ArticleCover = ({ article }) => {
     return (
         <div className='story-box'>
             <div className="story">
-                <div style={{zIndex: 3}}>
-                    <span>{story.series}</span>
+                <div>
                 </div>
 
                 <div>
                     <img className='cover-image'
-                        src={story.imageUrl}
-                        alt='story cover image'>
+                        src={article.imageUrl}
+                        alt='article cover image'>
                     </img>
                 </div>
 
                 <div>
-                    <span>{story.author}</span>
-                    <h3>{story.title}</h3>
+                    <span>{article.author}</span>
+                    <h3>{article.title}</h3>
                 </div>
             </div>
         </div>
     )
 }
 
-export default StoryCover;
+export default ArticleCover;

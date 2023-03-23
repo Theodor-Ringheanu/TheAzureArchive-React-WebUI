@@ -2,12 +2,12 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
-import '../Styles/App.css';
-import Footer from "../Components/Footer.js";
+import '../../Styles/App.css';
+import Footer from "../../Components/Footer.js";
 
-const StoryLayout = () => {
+const ArticleLayout = () => {
   const { id } = useParams();
-  const [story, setStory] = useState({});
+  const [article, setArticle] = useState({});
   const [scrollPosition, setScrollPosition] = useState(0);
   const [paragraphs, setParagraphs] = useState([]);
   const handleScroll = () => {
@@ -17,9 +17,9 @@ const StoryLayout = () => {
 
   useEffect(() => {
     axios
-      .get(`https://localhost:7080/api/Stories/${id}`)
+      .get(`https://localhost:7080/api/Articles/${id}`)
       .then((response) => {
-        setStory(() => {
+        setArticle(() => {
           return response.data.value;
         });
         setParagraphs(() => {
@@ -37,11 +37,11 @@ const StoryLayout = () => {
   }, []);
 
   return (
-    <Col key={story.id}>
+    <Col key={article.id}>
       <div>
 
         <div className='app'>
-          <Link to={`/story/EditStory/${encodeURIComponent(story.id)}`} key={story.id}>
+          <Link to={`/article/EditArticle/${encodeURIComponent(article.id)}`} key={article.id}>
             <h2>(edit)</h2>
           </Link>
         </div>
@@ -49,8 +49,8 @@ const StoryLayout = () => {
         <div
           className='story-title'
           style={{ opacity: opacity, }}>
-          <h1>{story.title}</h1>
-          <h2>{story.author}</h2>
+          <h1>{article.title}</h1>
+          <h2>{article.author}</h2>
         </div>
 
         <p
@@ -72,7 +72,7 @@ const StoryLayout = () => {
         <div
           id='story-background'
           style={{
-            backgroundImage: `url(${story.imageUrl})`,
+            backgroundImage: `url(${article.imageUrl})`,
             opacity: opacity,
           }}>
         </div>
@@ -83,4 +83,4 @@ const StoryLayout = () => {
   );
 };
 
-export default StoryLayout;
+export default ArticleLayout;

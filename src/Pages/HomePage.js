@@ -8,7 +8,7 @@ import Footer from "../Components/Footer.js";
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import { Swiper, SwiperSlide, } from 'swiper/react';
-import { EffectCoverflow, Pagination, Navigation } from 'swiper';
+import { EffectCoverflow} from 'swiper';
 
 import { Link } from 'react-router-dom';
 import StoryCover from '../Components/StoryCover';
@@ -19,7 +19,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get("https://localhost:7080/Stories/GetAllStories")
+      .get("https://localhost:7080/api/Stories")
       .then((response) => {
         setStories(response.data.value);
       })

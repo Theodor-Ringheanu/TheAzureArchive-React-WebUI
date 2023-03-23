@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
-import "../Styles/App.css"
-import add_story from "../assets/Images/add_story.jpg";
-import StoryCover from "../Components/StoryCover";
-import Navbar from "../Components/Navbar.js";
+import "../../Styles/App.css"
+import add_story from "../../assets/Images/add_story.jpg";
+import ArticleCover from "../../Components/ArticleCover";
+import Navbar from "../../Components/Navbar.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Footer from "../Components/Footer.js";
+import Footer from "../../Components/Footer.js";
 
-const ShortStoriesPage = () => {
-  const [stories, setStories] = useState([]);
+const BlogPage = () => {
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://localhost:7080/api/Stories")
+      .get("https://localhost:7080/api/Articles")
       .then((response) => {
-        setStories(response.data.value);
+        setArticles(response.data.value);
       })
       .catch(() => {
-        alert('Failed to fetch stories!');
+        alert('Failed to fetch articles!');
       });
   }, []);
 
@@ -30,30 +30,30 @@ const ShortStoriesPage = () => {
 
       <div className="page-background">
         <img
-          alt="Short Stories Page Background" />
+          alt="Blog Page Background" />
       </div>
       <div className="app">
         <h1 style={{ padding: "5%" }
-          }>Short Stories</h1>
+          }>Articles</h1>
     </div>
 
       {
-    stories?.length > 0 ? (
+    articles?.length > 0 ? (
       <div className="story-container">
-        {stories.map((story) => (
-          <Link to={`/story/${encodeURIComponent(story.id)}`} key={story.id}>
-            <StoryCover story={story} />
+        {articles.map((article) => (
+          <Link to={`/article/${encodeURIComponent(article.id)}`} key={article.id}>
+            <ArticleCover article={article} />
           </Link>
         ))}
 
         <div>
-          <Link to={`/AddStory`}>
+          <Link to={`/AddArticle`}>
             <div className="story">
               <div >
               </div>
               <div>
                 <img src={add_story}
-                  alt="add_story">
+                  alt="add_article">
                 </img>
               </div>
 
@@ -63,7 +63,7 @@ const ShortStoriesPage = () => {
       </div>
     ) : (
       <div className="empty">
-        <h2>No stories found</h2>
+        <h2>No articles found</h2>
       </div>
     )
   }
@@ -73,4 +73,4 @@ const ShortStoriesPage = () => {
   );
 };
 
-export default ShortStoriesPage;
+export default BlogPage;

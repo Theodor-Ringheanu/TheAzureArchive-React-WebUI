@@ -20,25 +20,21 @@ function EditStory() {
     const [contentError, setContentError] = useState(false);
 
     const { id } = useParams();
-    const [story, setStory] = useState({});
     const navigate = useNavigate();
 
     useEffect(() => {
         axios
-            .get(`https://localhost:7080/Stories/GetStoryById?id=${id}`)
+            .get(`https://localhost:7080/api/Stories/${id}`)
             .then((response) => {
-                setStory(() => {
-                    return response.data.value;
-                });
-                // storyTitle.current.value = story.title;
-                // storyAuthor.current.value = story.author;
-                // storySeries.current.value = story.series;
-                // storyPublicationDate.current.value = story.publicationDate;
-                // storyImageUrl.current.value = story.imageUrl;
-                // storyContent.current.value = story.content;
+                storyTitle.current.value = response.data.value.title;
+                storyAuthor.current.value = response.data.value.author;
+                storySeries.current.value = response.data.value.series;
+                storyPublicationDate.current.value = response.data.value.publicationDate;
+                storyImageUrl.current.value = response.data.value.imageUrl;
+                storyContent.current.value = response.data.value.content;
                 window.scrollTo(0, 0);
             });
-    }, [storyTitle.current.value]);
+    }, []);
 
     function validateDate(date) {
         return moment(date, ['YYYY-MM-DD'], true).isValid();
@@ -47,15 +43,15 @@ function EditStory() {
     window.scrollTo(0, 0);
 
     function EditStoryHandler() {
-        if (storyTitle.current.value === "") {
+        if (storyTitle.current.value.length < 2 || storyTitle.current.value.length >= 250) {
             setTitleError(true);
             return;
         }
-        if (storyAuthor.current.value === "") {
+        if (storyAuthor.current.value.length < 2 || storyAuthor.current.value.length >= 250) {
             setAuthorError(true);
             return;
         }
-        if (storySeries.current.value === "") {
+        if (storySeries.current.value.length < 2 || storySeries.current.value.length >= 250) {
             setSeriesError(true);
             return;
         }
@@ -63,14 +59,15 @@ function EditStory() {
             setDateError(true);
             return;
         }
-        if (storyImageUrl.current.value === "") {
+        if (storyImageUrl.current.value.length < 2 || storyImageUrl.current.value.length >= 250) {
             setImageUrlError(true);
             return;
         }
-        if (storyContent.current.value === "") {
+        if (storyContent.current.value.length < 2) {
             setContentError(true);
             return;
         }
+
         const payload = {
             id: id,
             title: storyTitle.current.value,
@@ -82,8 +79,8 @@ function EditStory() {
         };
 
         axios
-            .put("https://localhost:7080/Stories/EditStory", payload)
-            .then((response) => {
+            .put(`https://localhost:7080/api/Stories/${id}`, payload)
+            .then(() => {
                 navigate("/home");
             })
             .catch((error) => {
@@ -92,8 +89,8 @@ function EditStory() {
     }
 
     function deleteConfirmHandler() {
-        axios.delete(`https://localhost:7080/Stories/DeleteStory?id=${id}`)
-            .then((response) => {
+        axios.delete(`https://localhost:7080/api/Stories/${id}`)
+            .then(() => {
                 navigate("/home");
             });
     }
@@ -108,7 +105,7 @@ function EditStory() {
                         <Form.Label>Title</Form.Label>
                         {titleError &&
                             <div style={{ color: 'red' }}>
-                                Please enter a title.
+                                Please enter a valid title.
                             </div>}
                         <Form.Control type="text" placeholder={storyTitle} ref={storyTitle} />
                     </Form.Group>
@@ -117,7 +114,7 @@ function EditStory() {
                         <Form.Label>Author</Form.Label>
                         {authorError &&
                             <div style={{ color: 'red' }}>
-                                Please enter an author.
+                                Please enter a valid author.
                             </div>}
                         <Form.Control type="text" placeholder={storyAuthor} ref={storyAuthor} />
                     </Form.Group>
@@ -126,7 +123,7 @@ function EditStory() {
                         <Form.Label>Series</Form.Label>
                         {seriesError &&
                             <div style={{ color: 'red' }}>
-                                Please enter a series.
+                                Please enter a valid series.
                             </div>}
                         <Form.Control type="text" placeholder={storySeries} ref={storySeries} />
                     </Form.Group>

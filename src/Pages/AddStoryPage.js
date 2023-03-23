@@ -28,15 +28,15 @@ function AddStory() {
     window.scrollTo(0, 0);
 
     function AddStoryHandler() {
-        if (storyTitle.current.value === "") {
+        if (storyTitle.current.value.length < 2 || storyTitle.current.value.length >= 250) {
             setTitleError(true);
             return;
         }
-        if (storyAuthor.current.value === "") {
+        if (storyAuthor.current.value.length < 2 || storyAuthor.current.value.length >= 250) {
             setAuthorError(true);
             return;
         }
-        if (storySeries.current.value === "") {
+        if (storySeries.current.value.length < 2 || storySeries.current.value.length >= 250) {
             setSeriesError(true);
             return;
         }
@@ -44,11 +44,11 @@ function AddStory() {
             setDateError(true);
             return;
         }
-        if (storyImageUrl.current.value === "") {
+        if (storyImageUrl.current.value.length < 2 || storyImageUrl.current.value.length >= 250) {
             setImageUrlError(true);
             return;
         }
-        if (storyContent.current.value === "") {
+        if (storyContent.current.value.length < 2) {
             setContentError(true);
             return;
         }
@@ -62,7 +62,7 @@ function AddStory() {
         };
 
         axios
-            .post("https://localhost:7080/Stories/AddStory", payload)
+            .post("https://localhost:7080/api/Stories", payload)
             .then((response) => {
                 navigate("/home");
             })
@@ -81,7 +81,7 @@ function AddStory() {
                         <Form.Label>Title</Form.Label>
                         {titleError &&
                             <div style={{ color: 'red' }}>
-                                Please enter a title.
+                                Please enter a valid title.
                             </div>}
                         <Form.Control type="text" placeholder="Title" ref={storyTitle} />
                     </Form.Group>
@@ -90,7 +90,7 @@ function AddStory() {
                         <Form.Label>Author</Form.Label>
                         {authorError &&
                             <div style={{ color: 'red' }}>
-                                Please enter an author.
+                                Please enter a valid author.
                             </div>}
                         <Form.Control type="text" placeholder="Author" ref={storyAuthor} />
                     </Form.Group>
@@ -99,7 +99,7 @@ function AddStory() {
                         <Form.Label>Series</Form.Label>
                         {seriesError &&
                             <div style={{ color: 'red' }}>
-                                Please enter a series.
+                                Please enter a valid series.
                             </div>}
                         <Form.Control type="text" placeholder="Series" ref={storySeries} />
                     </Form.Group>
