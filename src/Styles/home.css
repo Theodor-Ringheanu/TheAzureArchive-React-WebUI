@@ -42,6 +42,54 @@
   clip-path: inset(0 22% 35% 0%);
 }
 
+.scroll-down{
+  height: 75px;
+  width: 45px;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  bottom: 10%;
+  border: 3px solid white;
+  border-radius: 50px;
+  z-index: 2;
+}
+
+.scroll-down::before,
+.scroll-down::after{
+  content:'';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  border: 3px solid white;
+  height: 12px;
+  width: 10px;
+  transform: translate(-90%, -50%) rotate(0);
+  border-top: transparent;
+  border-left: transparent;
+  border-bottom: transparent;
+  animation: scroll-down 3s ease-in-out infinite;
+}
+
+.scroll-down::after{
+  top: 30%;
+  animation-delay: .3s;
+}
+@keyframes scroll-down{
+  0%{
+    opacity: 0;
+  }
+  30%{
+    opacity: 1;
+  }
+  60%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+    top: 90%;
+  }
+}
+
 .heading {
   padding: 1rem 0;
   font-size: 3.5rem;
@@ -117,7 +165,6 @@
   color: #888;
   cursor: default;
 }
-
 
 .swiper, .swiper-container {
   margin-left: 100px;

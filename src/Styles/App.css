@@ -58,31 +58,35 @@ body{
 }
 
 .logo-text-logo {
-  width: 420px;
+  width: 500px;
   height: auto;
   padding-top: 10px;
+  transition: ease-in-out 0.3s;
   content: url('../assets/Images/aa_logo_text.png');
 }
 
 .logo-text-logo:hover {
-  width: 420px;
+  width: 500px;
   height: auto;
   padding-top: 10px;
+  transition: ease-in-out 0.3s;
   content: url('../assets/Images/aa_logo_text_hover.png');
 }
 
 .logo-text-logo.active {
+  transform: scale(80%);
   content: url('../assets/Images/aa_logo_text.png');
 }
 
 .logo-text-logo.active:hover {
+  transform: scale(80%);
   content: url('../assets/Images/aa_logo_text_hover.png');
 }
 
 nav a {
   text-decoration-style: solid;
   text-size-adjust: 100%;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin: 0 2rem;
   color: #f0e6d2;
   font-weight: 600px;

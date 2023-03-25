@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../Styles/home.css';
+import { format } from 'date-fns'
+import { Link, useNavigate } from "react-router-dom";
 
 import frontpage_vid from '../assets/videos/frontpage_vid.mp4';
 import Navbar from "../Components/Navbar.js";
@@ -8,9 +10,8 @@ import Footer from "../Components/Footer.js";
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import { Swiper, SwiperSlide, } from 'swiper/react';
-import { EffectCoverflow} from 'swiper';
+import { EffectCoverflow } from 'swiper';
 
-import { Link } from 'react-router-dom';
 import StoryCover from '../Components/StoryCover';
 import axios from 'axios';
 
@@ -49,6 +50,7 @@ const HomePage = () => {
     );
   };
 
+  const navigate = useNavigate();
   const emailRef = React.createRef();
   const gdprRef = React.createRef();
   const buttonRef = React.createRef();
@@ -60,17 +62,27 @@ const HomePage = () => {
 
     if (!emailInput.value || !gdprCheckbox.checked) {
       button.disabled = true;
-      console.log(`button: ${button.disabled}`);
     } else {
       button.disabled = false;
-      console.log(`button: ${button.disabled}`);
     }
   }
 
-  function submitEmail(event) {
-    event.preventDefault();
+  function submitEmail() {
     const emailInput = emailRef.current;
-    console.log(`email: ${emailInput.value}`);
+    const payload = {
+      email: emailInput.value,
+      isSubscribed: true,
+      dateSubscribed: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss"),
+    };
+
+    axios
+      .post("https://localhost:7080/api/EmailsSubscribed", payload)
+      .then((response) => {
+        navigate("/home");
+      })
+      .catch((error) => {
+        console.log(`Apparently there's this error: ${error}`);
+      });
   }
 
   return (
@@ -79,6 +91,7 @@ const HomePage = () => {
       <Navbar />
 
       <div className="bg-header" id="video-background">
+        <div className="scroll-down"/>
         <video autoPlay muted loop playsInline>
           <source src={frontpage_vid} />
         </video>
@@ -124,7 +137,7 @@ const HomePage = () => {
             depth: 100,
             modifier: 1,
           }}
-         
+
           modules={[EffectCoverflow]}
           className="swiper-container"
         >
@@ -163,7 +176,9 @@ const HomePage = () => {
           </SwiperSlide>
         </Swiper>
       </div>
+
       <Footer />
+
     </div>
   );
 };
