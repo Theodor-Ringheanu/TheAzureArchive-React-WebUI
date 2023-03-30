@@ -5,6 +5,7 @@ import { Form, Button } from "react-bootstrap";
 import moment from 'moment';
 
 function AddArticle() {
+    window.scrollTo(0, 0);
     const articleTitle = useRef("");
     const articleAuthor = useRef("");
     const articlePublicationDate = useRef("");
@@ -22,8 +23,6 @@ function AddArticle() {
     function validateDate(date) {
         return moment(date, ['YYYY-MM-DD'], true).isValid();
     }
-    
-    window.scrollTo(0, 0);
 
     function AddArticleHandler() {
         if (articleTitle.current.value.length < 2 ||articleTitle.current.value.length >= 250) {

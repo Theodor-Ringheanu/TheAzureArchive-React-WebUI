@@ -5,6 +5,7 @@ import { Form, Button } from "react-bootstrap";
 import moment from 'moment';
 
 function AddStory() {
+    window.scrollTo(0, 0);
     const storyTitle = useRef("");
     const storyAuthor = useRef("");
     const storySeries = useRef("");
@@ -24,8 +25,6 @@ function AddStory() {
     function validateDate(date) {
         return moment(date, ['YYYY-MM-DD'], true).isValid();
     }
-    
-    window.scrollTo(0, 0);
 
     function AddStoryHandler() {
         if (storyTitle.current.value.length < 2 || storyTitle.current.value.length >= 250) {

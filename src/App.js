@@ -12,15 +12,17 @@ import AddArticlePage from './Pages/Blog/AddArticlePage';
 import EditStoryPage from './Pages/EditStoryPage';
 import EditArticlePage from './Pages/Blog/EditArticlePage';
 import ArticleLayoutPage from './Pages/Blog/ArticleLayoutPage';
+import AdminPage from './Pages/Admin/AdminPage';
 
 export default function App() {
   return (
     <div>
         <Routes>
           <Route path='/home' element={<HomePage />} />
-          <Route path='/blog' element={<BlogPage />} />
+          <Route path='/posts' element={<BlogPage />} />
           <Route path='/short-stories' element={<ShortStoriesPage />} />
           <Route path='/about' element={<AboutPage />} />
+          <Route path='/admin' element={<AdminPage />} />
           <Route path='/story/:id' element={<StoryLayoutPage />} />
           <Route path='/article/:id' element={<ArticleLayoutPage />} />
           <Route path='/AddStory' element={<AddStoryPage />} />

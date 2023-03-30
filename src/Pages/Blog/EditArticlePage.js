@@ -37,8 +37,6 @@ function EditArticle() {
         return moment(date, ['YYYY-MM-DD'], true).isValid();
     }
 
-    window.scrollTo(0, 0);
-
     function EditArticleHandler() {
         if (articleTitle.current.value.length < 2 || articleTitle.current.value.length >= 250) {
             setTitleError(true);

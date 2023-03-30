@@ -34,41 +34,41 @@ const ShortStoriesPage = () => {
       </div>
       <div className="app">
         <h1 style={{ padding: "5%" }
-          }>Short Stories</h1>
-    </div>
+        }>Short Stories</h1>
+      </div>
 
       {
-    stories?.length > 0 ? (
-      <div className="story-container">
-        {stories.map((story) => (
-          <Link to={`/story/${encodeURIComponent(story.id)}`} key={story.id}>
-            <StoryCover story={story} />
-          </Link>
-        ))}
+        stories?.length > 0 ? (
+          <div className="story-container">
+            {stories.map((story) => (
+              <Link to={`/story/${encodeURIComponent(story.id)}`} key={story.id}>
+                <StoryCover story={story} />
+              </Link>
+            ))}
 
-        <div>
-          <Link to={`/AddStory`}>
-            <div className="story">
-              <div >
-              </div>
-              <div>
-                <img src={add_story}
-                  alt="add_story">
-                </img>
-              </div>
+            <div>
+              <Link to={`/AddStory`}>
+                <div className="story">
+                  <div >
+                  </div>
+                  <div>
+                    <img src={add_story}
+                      alt="add_story">
+                    </img>
+                  </div>
 
+                </div>
+              </Link>
             </div>
-          </Link>
-        </div>
-      </div>
-    ) : (
-      <div className="empty">
-        <h2>No stories found</h2>
-      </div>
-    )
-  }
+          </div>
+        ) : (
+          <div className="empty">
+            <h2>No stories found</h2>
+          </div>
+        )
+      }
 
-  <Footer />
+      <Footer />
     </div >
   );
 };

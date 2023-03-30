@@ -117,16 +117,17 @@ export default function Navbar() {
     return (
         <div className={navbar ? 'navbar active' : 'navbar'}>
             <div className="logo-box">
-            <a href='/home'>
-                <div className={navbar ? 'logo-text-logo active'
-                    : 'logo-text-logo'}/>
-            </a>
+                <a href='/home'>
+                    <div className={navbar ? 'logo-text-logo active'
+                        : 'logo-text-logo'} />
+                </a>
             </div>
 
             <nav ref={navRef}>
-                <a href="/blog">BLOG</a>
-                <a href="/short-stories">SHORT STORIES</a>
-                <a href="/about">ABOUT</a>
+                <a href="/posts">posts</a>
+                <a href="/short-stories">short stories</a>
+                {/* <a href="/about">about</a> */}
+                <a href="/admin">admin</a>
 
                 <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                     <FaTimes />
@@ -137,8 +138,9 @@ export default function Navbar() {
                 <FaBars />
             </button>
 
-            {/* show Google button or Logout button depending on user state */}
-            <div>
+            <div style={
+                {paddingLeft: '20%'}
+            }>
                 {!isSignedIn && <div className="google-btn" id="signInDiv" />}
                 {isSignedIn && (
                     <button className="google-btn" onClick={handleSignOut}>
@@ -147,6 +149,5 @@ export default function Navbar() {
                 )}
             </div>
         </div>
-        
     );
 }

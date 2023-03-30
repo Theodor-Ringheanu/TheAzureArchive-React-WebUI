@@ -13,8 +13,25 @@ const ArticleLayout = () => {
   const handleScroll = () => {
     setScrollPosition(window.pageYOffset);
   };
-  const opacity = Math.max(1 - scrollPosition / 1, 0);
 
+  const partialOpacity = () => {
+    let i = 1 - scrollPosition / 200;
+    if (i > 0.2) {
+      return i;
+    }
+    else return 0.2;
+  };
+
+  const blur = () => {
+    if (scrollPosition / 50 > 0 && scrollPosition / 50 < 10) {
+      return scrollPosition / 10;
+    }
+    if (scrollPosition / 50 >= 10) {
+      return 50;
+    }
+    else return 1;
+  };
+  
   useEffect(() => {
     axios
       .get(`https://localhost:7080/api/Articles/${id}`)
@@ -47,20 +64,13 @@ const ArticleLayout = () => {
         </div>
 
         <div
-          className='story-title'
-          style={{ opacity: opacity, }}>
+          className='content-title content-title-article'>
           <h1>{article.title}</h1>
           <h2>{article.author}</h2>
         </div>
 
-        <p
-          className='scroller'
-          style={{ opacity: opacity, }}>
-          It all begun with a scroll...
-        </p>
-
         <div
-          className='content'>
+          className='content content-article'>
           {paragraphs.map((paragraph, index) => (
             <React.Fragment key={index}>
               <p>{paragraph}</p>
@@ -70,10 +80,11 @@ const ArticleLayout = () => {
         </div>
 
         <div
-          id='story-background'
+          className='content-background content-background-article'
           style={{
             backgroundImage: `url(${article.imageUrl})`,
-            opacity: opacity,
+            opacity: partialOpacity(),
+            filter: `blur(${blur()}px)`,
           }}>
         </div>
       </div>

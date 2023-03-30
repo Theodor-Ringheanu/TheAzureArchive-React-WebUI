@@ -34,41 +34,41 @@ const BlogPage = () => {
       </div>
       <div className="app">
         <h1 style={{ padding: "5%" }
-          }>Articles</h1>
-    </div>
+        }>Posts</h1>
+      </div>
 
       {
-    articles?.length > 0 ? (
-      <div className="story-container">
-        {articles.map((article) => (
-          <Link to={`/article/${encodeURIComponent(article.id)}`} key={article.id}>
-            <ArticleCover article={article} />
-          </Link>
-        ))}
+        articles?.length > 0 ? (
+          <div className="story-container">
+            {articles.map((article) => (
+              <Link to={`/article/${encodeURIComponent(article.id)}`} key={article.id}>
+                <ArticleCover article={article} />
+              </Link>
+            ))}
 
-        <div>
-          <Link to={`/AddArticle`}>
-            <div className="story">
-              <div >
-              </div>
-              <div>
-                <img src={add_story}
-                  alt="add_article">
-                </img>
-              </div>
+            <div>
+              <Link to={`/AddArticle`}>
+                <div className="story">
+                  <div >
+                  </div>
+                  <div>
+                    <img src={add_story}
+                      alt="add_article">
+                    </img>
+                  </div>
 
+                </div>
+              </Link>
             </div>
-          </Link>
-        </div>
-      </div>
-    ) : (
-      <div className="empty">
-        <h2>No articles found</h2>
-      </div>
-    )
-  }
+          </div>
+        ) : (
+          <div className="empty">
+            <h2>No articles found</h2>
+          </div>
+        )
+      }
 
-  <Footer />
+      <Footer />
     </div >
   );
 };

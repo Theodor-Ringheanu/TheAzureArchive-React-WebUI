@@ -4,7 +4,8 @@ const ArticleCover = ({ article }) => {
     return (
         <div className='story-box'>
             <div className="story">
-                <div>
+                <div style={{ zIndex: 3 }}>
+                    <span></span>
                 </div>
 
                 <div>

@@ -40,8 +40,6 @@ function EditStory() {
         return moment(date, ['YYYY-MM-DD'], true).isValid();
     }
 
-    window.scrollTo(0, 0);
-
     function EditStoryHandler() {
         if (storyTitle.current.value.length < 2 || storyTitle.current.value.length >= 250) {
             setTitleError(true);

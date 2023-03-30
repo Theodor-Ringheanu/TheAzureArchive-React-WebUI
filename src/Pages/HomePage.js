@@ -72,7 +72,7 @@ const HomePage = () => {
     const payload = {
       email: emailInput.value,
       isSubscribed: true,
-      dateSubscribed: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss"),
+      dateAdded: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss"),
     };
 
     axios

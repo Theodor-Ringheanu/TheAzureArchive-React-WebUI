@@ -47,7 +47,7 @@ const StoryLayout = () => {
         </div>
 
         <div
-          className='story-title'
+          className='content-title'
           style={{ opacity: opacity, }}>
           <h1>{story.title}</h1>
           <h2>{story.author}</h2>
@@ -70,7 +70,7 @@ const StoryLayout = () => {
         </div>
 
         <div
-          id='story-background'
+          className='content-background'
           style={{
             backgroundImage: `url(${story.imageUrl})`,
             opacity: opacity,
