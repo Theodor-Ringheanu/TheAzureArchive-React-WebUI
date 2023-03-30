@@ -91,7 +91,7 @@ const HomePage = () => {
       <Navbar />
 
       <div className="bg-header" id="video-background">
-        <div className="scroll-down"/>
+        <div className="scroll-down" />
         <video autoPlay muted loop playsInline>
           <source src={frontpage_vid} />
         </video>

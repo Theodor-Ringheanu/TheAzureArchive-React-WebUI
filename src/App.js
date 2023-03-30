@@ -13,6 +13,11 @@ import EditStoryPage from './Pages/EditStoryPage';
 import EditArticlePage from './Pages/Blog/EditArticlePage';
 import ArticleLayoutPage from './Pages/Blog/ArticleLayoutPage';
 import AdminPage from './Pages/Admin/AdminPage';
+import NewsPage from './Pages/News/NewsPage';
+import NewsLayoutPage from './Pages/News/NewsLayoutPage';
+import AddNewsPage from './Pages/News/AddNewsPage';
+import EditNewsPage from './Pages/News/EditNewsPage';
+
 
 export default function App() {
   return (
@@ -21,14 +26,18 @@ export default function App() {
           <Route path='/home' element={<HomePage />} />
           <Route path='/posts' element={<BlogPage />} />
           <Route path='/short-stories' element={<ShortStoriesPage />} />
+          <Route path='/news' element={<NewsPage />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/admin' element={<AdminPage />} />
           <Route path='/story/:id' element={<StoryLayoutPage />} />
           <Route path='/article/:id' element={<ArticleLayoutPage />} />
+          <Route path='/news/:id' element={<NewsLayoutPage />} />
           <Route path='/AddStory' element={<AddStoryPage />} />
           <Route path='/AddArticle' element={<AddArticlePage />} />
+          <Route path='/AddNews' element={<AddNewsPage />} />
           <Route path='/story/EditStory/:id' element={<EditStoryPage />} />
           <Route path='/article/EditArticle/:id' element={<EditArticlePage />} />
+          <Route path='/news/EditNews/:id' element={<EditNewsPage />} />
         </Routes>
     </div>
   );

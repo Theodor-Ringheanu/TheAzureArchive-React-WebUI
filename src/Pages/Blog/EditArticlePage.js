@@ -68,7 +68,7 @@ function EditArticle() {
         };
 
         axios
-            .put(`https://localhost:7080/api/Articles/${id}`, payload)
+            .patch(`https://localhost:7080/api/Articles/${id}`, payload)
             .then(() => {
                 navigate("/home");
             })

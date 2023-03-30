@@ -124,8 +124,9 @@ export default function Navbar() {
             </div>
 
             <nav ref={navRef}>
-                <a href="/posts">posts</a>
-                <a href="/short-stories">short stories</a>
+                <a href="/posts">.posts</a>
+                <a href="/news">.news</a>
+                <a href="/short-stories">.shortStories</a>
                 {/* <a href="/about">about</a> */}
                 <a href="/admin">admin</a>
 

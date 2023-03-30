@@ -77,7 +77,7 @@ function EditStory() {
         };
 
         axios
-            .put(`https://localhost:7080/api/Stories/${id}`, payload)
+            .patch(`https://localhost:7080/api/Stories/${id}`, payload)
             .then(() => {
                 navigate("/home");
             })
