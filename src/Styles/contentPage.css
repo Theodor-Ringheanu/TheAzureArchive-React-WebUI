@@ -1,0 +1,214 @@
+/* story covers */
+
+.story-container {
+  width: 100%;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 100%;
+  top: 0px;
+  bottom: 0px;
+}
+
+.story-intro {
+  position: absolute;
+  padding: 25% 25% 25% 25%;
+  text-align: center;
+  font-size: 50px;
+}
+
+.story-intro h2 {
+  text-align: left;
+  font-size: 25px;
+}
+
+.story {
+  width: 362px;
+  height: 472px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+.story:hover {
+  border-image-slice: 40;
+  border-image-source: linear-gradient(180deg,#f0e6d2 0,#D0B198);
+  border-style:solid;
+  border-width: 1px;
+}
+
+.cover-image {
+  object-fit: cover;
+}
+
+.story div:nth-of-type(1) {
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  color: #f9d3b4;
+}
+.story:hover div:nth-of-type(1) {
+  opacity: 1;
+}
+
+.story div:nth-of-type(2) {
+  transition: .2s ease;
+  width: 100%;
+  height: 100%;
+}
+.story:hover div:nth-of-type(2) {
+  transition: .4s ease;
+}
+
+.story div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+}
+
+.story div:nth-of-type(3) {
+  transition: .2s ease;
+  z-index: 2;
+  background-size: cover;
+  background-image: url(../assets/Images/corner-hover-gradient.png);
+  padding: 400px 24px 24px 24px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.story:hover div:nth-of-type(3) {
+  transition: .4s ease;
+  background-image: url(../assets/Images/corner-overlay.png);
+  background-image: cover;
+  padding: 400px 24px 24px 24px;
+}
+
+.story div:nth-of-type(3) span {
+  transition: .2s ease;
+  opacity: 0;
+  text-align: left;
+  letter-spacing: 1px;
+  font-family: "Raleway", sans-serif;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 700;
+  padding-bottom: 8px;
+  color: #f0f0f0;
+}
+.story:hover div:nth-of-type(3) span {
+  transition: .4s ease;
+  opacity: 1;
+}
+
+.story div:nth-of-type(3) h3 {
+  transition: .2s ease;
+  margin-top: 5px;
+  font-family: "Roboto Slab", serif;
+  color: #f9d3b4;
+  font-size: 20px;
+  text-align: left;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.story:hover div:nth-of-type(3) h3 {
+  transition: .2s ease;
+}
+
+/* -------------------------------------------------------------- */
+/* common covers */
+
+.cover-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 5%;
+}
+
+.cover {
+  width: 362px;
+  height: 472px;
+  margin: 1.5rem;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+
+.cover div:nth-of-type(1) {
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  color: #f9d3b4;
+}
+
+.cover:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05, 1.05);
+}
+
+.cover div:nth-of-type(2) {
+  width: 100%;
+  height: 100%;
+}
+
+.cover div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+}
+
+.cover div:nth-of-type(3) {
+  z-index: 2;
+  background-size: cover;
+  background-image: url(../assets/Images/corner-hover-gradient.png);
+  padding: 400px 24px 24px 24px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.cover div:nth-of-type(3) span {
+  text-align: left;
+  letter-spacing: 1px;
+  font-family: "Raleway", sans-serif;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 700;
+  padding-bottom: 8px;
+  color: #f0f0f0;
+}
+
+.cover div:nth-of-type(3) h3 {
+  margin-top: 5px;
+  font-family: "Roboto Slab", serif;
+  color: #f9d3b4;
+  font-size: 24px;
+  text-align: left;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cover:hover div:nth-of-type(2) {
+  height: 100%;
+  opacity: 1;
+}
+
+.cover:hover div:nth-of-type(3) {
+  transition: .2s ease;
+  background-image: url(../assets/Images/corner-overlay.png);
+  background-image: cover;
+  padding: 391px 24px 24px 24px;
+}
+
+.cover:hover div:nth-of-type(1) {
+  opacity: 1;
+}

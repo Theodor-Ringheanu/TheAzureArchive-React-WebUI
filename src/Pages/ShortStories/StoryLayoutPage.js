@@ -2,8 +2,8 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
-import '../Styles/App.css';
-import Footer from "../Components/Footer.js";
+import '../../Styles/App.css';
+import Footer from "../../Components/Footer.js";
 
 const StoryLayout = () => {
   const { id } = useParams();

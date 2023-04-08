@@ -133,7 +133,7 @@ const HomePage = () => {
           slidesPerView={'5'}
           coverflowEffect={{
             rotate: -2,
-            stretch: 60,
+            stretch: 15,
             depth: 100,
             modifier: 1,
           }}

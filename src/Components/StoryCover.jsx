@@ -11,7 +11,7 @@ const StoryCover = ({ story }) => {
                 <div>
                     <img className='cover-image'
                         src={story.imageUrl}
-                        alt='story cover image'>
+                        alt='story cover'>
                     </img>
                 </div>
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../Styles/App.css"
+
 import add_story from "../../assets/Images/add_story.jpg";
 import ArticleCover from "../../Components/ArticleCover";
 import Navbar from "../../Components/Navbar.js";
@@ -29,8 +30,7 @@ const BlogPage = () => {
       </React.Fragment>
 
       <div className="page-background">
-        <img
-          alt="Blog Page Background" />
+        <img/>
       </div>
       <div className="app">
         <h1 style={{ padding: "5%" }
@@ -39,7 +39,7 @@ const BlogPage = () => {
 
       {
         articles?.length > 0 ? (
-          <div className="story-container">
+          <div className="cover-container">
             {articles.map((article) => (
               <Link to={`/article/${encodeURIComponent(article.id)}`} key={article.id}>
                 <ArticleCover article={article} />
@@ -48,7 +48,7 @@ const BlogPage = () => {
 
             <div>
               <Link to={`/AddArticle`}>
-                <div className="story">
+                <div className="cover">
                   <div >
                   </div>
                   <div>

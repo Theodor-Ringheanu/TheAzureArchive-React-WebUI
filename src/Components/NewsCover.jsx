@@ -3,7 +3,7 @@ import React from 'react';
 const NewsCover = ({ news }) => {
     return (
         <div className='story-box'>
-            <div className="story">
+            <div className="cover">
                 <div style={{zIndex: 3}}>
                     <span>{news.source}</span>
                 </div>
@@ -11,7 +11,7 @@ const NewsCover = ({ news }) => {
                 <div>
                     <img className='cover-image'
                         src={news.imageUrl}
-                        alt='news cover image'>
+                        alt='news cover'>
                     </img>
                 </div>
 

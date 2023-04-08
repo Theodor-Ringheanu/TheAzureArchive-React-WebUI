@@ -2,13 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import jwt_decode from "jwt-decode";
 import { FaBars, FaTimes } from 'react-icons/fa';
 import '../Styles/footer.css';
+import '../Styles/navbar.css';
 
 export default function Navbar() {
-    const [navbar, setNavbar] = useState(false);
-
-    // create ref for adjusting nav element when menu is clicked
-    const navRef = useRef();
-
     // function to toggle responsive_nav class on nav element
     const showNavbar = () => {
         navRef.current.classList.toggle("responsive_nav");
@@ -105,50 +101,123 @@ export default function Navbar() {
     // determine if user is signed in by checking if user state has any keys
     const isSignedIn = Object.keys(user).length !== 0;
 
-    const changeBackground = () => {
+
+
+    // create ref for adjusting nav element when menu is clicked
+    const navRef = useRef();
+
+    const [navbarY, setNavbarY] = useState(false);
+    const changeBackgroundY = () => {
         if (window.scrollY >= 80) {
-            setNavbar(true);
+            setNavbarY(true);
         } else {
-            setNavbar(false);
+            setNavbarY(false);
         }
     }
-    window.addEventListener('scroll', changeBackground);
+
+    const [navbarX, setNavbarX] = useState(false)
+    const changeBackgroundX = () => {
+        if (window.scrollX >= 600) {
+            setNavbarX(true);
+        }
+    }
+
+    const [navbarVisible, setNavbarVisible] = useState(true);
+    const retractEvent = () => {
+        if (navbarVisible) {
+            setNavbarVisible(false);
+        }
+        else {
+            setNavbarVisible(true);
+        }
+    }
+
+    window.addEventListener('scroll', changeBackgroundY);
+    window.addEventListener('scroll', changeBackgroundX);
 
     return (
-        <div className={navbar ? 'navbar active' : 'navbar'}>
-            <div className="logo-box">
-                <a href='/home'>
-                    <div className={navbar ? 'logo-text-logo active'
-                        : 'logo-text-logo'} />
-                </a>
-            </div>
+        <div>
 
-            <nav ref={navRef}>
-                <a href="/posts">.posts</a>
-                <a href="/news">.news</a>
-                <a href="/short-stories">.shortStories</a>
-                {/* <a href="/about">about</a> */}
-                <a href="/admin">admin</a>
+            {!navbarX ? (
+                <div className={navbarY ? 'navbar active' : 'navbar'}>
+                    <div className="logo-box">
+                        <a href='/home'>
+                            <div className={navbarY ? 'logo-text-logo active'
+                                : 'logo-text-logo'} />
+                        </a>
+                    </div>
 
-                <button className='nav-btn nav-close-btn' onClick={showNavbar}>
-                    <FaTimes />
-                </button>
-            </nav>
+                    <nav ref={navRef}>
+                        <a href="/posts">.posts</a>
+                        <a href="/news">.news</a>
+                        <a href="/short-stories">.shortStories</a>
+                        {/* <a href="/about">about</a> */}
+                        <a href="/admin">admin</a>
 
-            <button className='nav-btn' onClick={showNavbar}>
-                <FaBars />
-            </button>
+                        <button className='nav-btn nav-close-btn' onClick={showNavbar}>
+                            <FaTimes />
+                        </button>
+                    </nav>
 
-            <div style={
-                {paddingLeft: '20%'}
-            }>
+                    <button className='nav-btn' onClick={showNavbar}>
+                        <FaBars />
+                    </button>
+
+                    {/* <div>
                 {!isSignedIn && <div className="google-btn" id="signInDiv" />}
                 {isSignedIn && (
                     <button className="google-btn" onClick={handleSignOut}>
                         Sign Out
                     </button>
                 )}
-            </div>
+            </div> */}
+                </div>
+            ) : (
+
+                <div className={navbarVisible ? 'navbarX active' : 'navbar'}>
+
+                    {/* <button className={navbarVisible ? 'hideNav-btn' : 'hideNav-btn'}
+                        onClick={retractEvent}>
+                        <FaTimes />
+                    </button>
+                    <button className={navbarVisible ? 'showNav-btn' : 'showNav-btn'}
+                        onClick={retractEvent}>
+                        <FaBars />
+                    </button> */}
+
+
+                    <div className="logoX-box">
+                        <a href='/home'>
+                            <div className='logoX-logo' />
+                        </a>
+                    </div>
+
+                    <a href="/posts">.posts</a>
+                    <a href="/news">.news</a>
+                    <a href="/short-stories">.shortStories</a>
+                    {/* <a href="/about">about</a> */}
+                    <a href="/admin">admin</a>
+
+                    <button className='nav-btn nav-close-btn' onClick={showNavbar}>
+                        <FaTimes />
+                    </button>
+
+                    <button className='nav-btn' onClick={showNavbar}>
+                        <FaBars />
+                    </button>
+
+                    {/* <div>
+            {!isSignedIn && <div className="google-btn" id="signInDiv" />}
+            {isSignedIn && (
+                <button className="google-btn" onClick={handleSignOut}>
+                    Sign Out
+                </button>
+            )}
+        </div> */}
+                </div>
+            )};
         </div>
+
+
     );
 }

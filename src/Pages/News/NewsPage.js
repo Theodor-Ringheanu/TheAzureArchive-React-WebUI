@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../Styles/App.css"
+import "../../Styles/contentPage.css";
 import add_story from "../../assets/Images/add_story.jpg";
 import NewsCover from "../../Components/NewsCover";
 import Navbar from "../../Components/Navbar.js";
@@ -29,8 +30,7 @@ const NewsPage = () => {
       </React.Fragment>
 
       <div className="page-background">
-        <img
-          alt="Blog Page Background" />
+        <img/>
       </div>
       <div className="app">
         <h1 style={{ padding: "5%" }
@@ -39,7 +39,7 @@ const NewsPage = () => {
 
       {
         news?.length > 0 ? (
-          <div className="story-container">
+          <div className="cover-container">
             {news.map((news) => (
               <Link to={`/news/${encodeURIComponent(news.idNews)}`} key={news.idNews}>
                 <NewsCover news={news} />
@@ -48,7 +48,7 @@ const NewsPage = () => {
 
             <div>
               <Link to={`/AddNews`}>
-                <div className="story">
+                <div className="cover">
                   <div >
                   </div>
                   <div>
