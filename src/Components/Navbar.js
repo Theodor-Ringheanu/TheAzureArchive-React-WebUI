@@ -148,11 +148,12 @@ export default function Navbar() {
                     </div>
 
                     <nav ref={navRef}>
-                        <a href="/posts">.posts</a>
-                        <a href="/news">.news</a>
-                        <a href="/short-stories">.shortStories</a>
-                        {/* <a href="/about">about</a> */}
-                        <a href="/admin">admin</a>
+                        <a href="/home">Home</a>
+                        <a href="/posts">Posts</a>
+                        {/* <a href="/news">.news</a> */}
+                        <a href="/short-stories">Short Stories</a>
+                        <a href="/about">About</a>
+                        <a href="/admin">[admin]</a>
 
                         <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                             <FaTimes />
@@ -175,7 +176,6 @@ export default function Navbar() {
             ) : (
 
                 <div className={navbarVisible ? 'navbarX active' : 'navbar'}>
-
                     {/* <button className={navbarVisible ? 'hideNav-btn' : 'hideNav-btn'}
                         onClick={retractEvent}>
                         <FaTimes />
@@ -192,10 +192,11 @@ export default function Navbar() {
                         </a>
                     </div>
 
-                    <a href="/posts">.posts</a>
-                    <a href="/news">.news</a>
-                    <a href="/short-stories">.shortStories</a>
-                    {/* <a href="/about">about</a> */}
+                    <a href="/home">Home</a>
+                    <a href="/posts">Posts</a>
+                    {/* <a href="/news">.news</a> */}
+                    <a href="/short-stories">Short Stories</a>
+                    <a href="/about">About</a>
                     <a href="/admin">admin</a>
 
                     <button className='nav-btn nav-close-btn' onClick={showNavbar}>

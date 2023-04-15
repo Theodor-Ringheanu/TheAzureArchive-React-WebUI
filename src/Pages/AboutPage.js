@@ -1,23 +1,27 @@
 import React from 'react';
 import '../Styles/App.css'
 import Navbar from "../Components/Navbar.js";
-import construction from "../assets/Images/under_construction.jpg";
+import Footer from "../Components/Footer.js";
 
-const ContactPage = () => {
+const AboutPage = () => {
     return (
         <div>
             <div>
                 <React.Fragment>
                     <Navbar />
                 </React.Fragment>
-                <div>
-                    <div>
-                        <img src={construction} alt='page under construction'></img>
-                    </div>
-                </div>
+
+                
+
+
+
+
+                {/* <React.Fragment>
+                    <Footer />
+                </React.Fragment> */}
             </div>
         </div>
     );
 }
 
-export default ContactPage;
+export default AboutPage;

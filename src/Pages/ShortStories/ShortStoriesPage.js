@@ -47,7 +47,7 @@ const ShortStoriesPage = () => {
 
       <div className="story-intro">
         <h1>Short Stories</h1>
-        <h2>Another word here</h2>
+        {/* <h2>Another word here</h2> */}
       </div>
 
       <div>

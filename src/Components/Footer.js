@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styles/App.css';
-import li from '../assets/Images/linkedin_icon.png';
-import fb from '../assets/Images/facebook_icon.png';
+// import li from '../assets/Images/linkedin_icon.png';
+// import fb from '../assets/Images/facebook_icon.png';
 
 
 const Footer = () => {
@@ -14,15 +14,15 @@ const Footer = () => {
                 </div>
                 <div className='ft_footer-links'>
                     <div className='ft_footer-links-div'>
-                        <h4>For Business</h4>
+                        <h4>General Stuff</h4>
                         <a href="/about">
-                            <p>About Us</p>
+                            <p>About</p>
                         </a>
                         <a href="/home">
                             <p>Sign Up for Updates</p>
                         </a>
                         <a href="/contact">
-                            <p>Contact Us</p>
+                            <p>Contact</p>
                         </a>
                     </div>
                     <div className='ft_footer-links-div'>
@@ -34,12 +34,12 @@ const Footer = () => {
                             <p>Privacy Notice</p>
                         </a>
                     </div>
-                    <div className='ft_footer-links-div'>
+                    {/* <div className='ft_footer-links-div'>
                         <div className='socialMedia'>
                             <p><img alt="social media icon1" src={li}></img></p>
                             <p><img alt="social media icon2" src={fb}></img></p>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className='ft_footer-below'>

@@ -23,7 +23,19 @@ const StoryLayout = () => {
           return response.data.value;
         });
         setParagraphs(() => {
-          return response.data.value.content.split('\n\n');
+          const content = response.data.value.content;
+          const splitContent = content.split('\n\n');
+          const paragraphs = [];
+          splitContent.forEach((p) => {
+            if (p.startsWith('*') && p.endsWith('*')) {
+              const text = p.slice(1, -1);
+              paragraphs.push(<h3 key={p}>{text}</h3>);
+            } else {
+              paragraphs.push(<p key={p}>{p}</p>);
+            }
+            paragraphs.push(<br key={`${p}_br`} />);
+          });
+          return paragraphs;
         });
         window.scrollTo(0, 0);
       });
@@ -59,12 +71,11 @@ const StoryLayout = () => {
           It all begun with a scroll...
         </p>
 
-        <div
-          className='content'>
+        <div className='content'>
           {paragraphs.map((paragraph, index) => (
             <React.Fragment key={index}>
-              <p>{paragraph}</p>
-              {index !== paragraphs.length - 1 && <br />}
+              {paragraph}
+              {paragraph.type === "p"}
             </React.Fragment>
           ))}
         </div>

@@ -13,6 +13,7 @@
 }
 
 .story-intro {
+  font-family: 'Marcellus SC', serif;
   position: absolute;
   padding: 25% 25% 25% 25%;
   text-align: center;
@@ -20,6 +21,7 @@
 }
 
 .story-intro h2 {
+  font-family: 'Roboto Slab', sans-serif;
   text-align: left;
   font-size: 25px;
 }

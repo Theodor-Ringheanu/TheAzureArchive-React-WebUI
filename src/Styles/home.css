@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
 
 .home-body {
+  font-family: 'Marcellus SC', serif;
   padding-top: 0;
   background-color: #111214;
   color: #f0e6d2;
@@ -41,7 +42,7 @@
   clip-path: inset(0 22% 35% 0%);
 }
 
-.scroll-down{
+.scroll-down {
   height: 60px;
   width: 35px;
   position: absolute;
@@ -54,8 +55,8 @@
 }
 
 .scroll-down::before,
-.scroll-down::after{
-  content:'';
+.scroll-down::after {
+  content: '';
   position: absolute;
   top: 20%;
   left: 50%;
@@ -69,21 +70,25 @@
   animation: scroll-down 3s ease-in-out infinite;
 }
 
-.scroll-down::after{
+.scroll-down::after {
   top: 30%;
   animation-delay: .3s;
 }
-@keyframes scroll-down{
-  0%{
+
+@keyframes scroll-down {
+  0% {
     opacity: 0;
   }
-  30%{
+
+  30% {
     opacity: 1;
   }
-  60%{
+
+  60% {
     opacity: 0;
   }
-  100%{
+
+  100% {
     opacity: 0;
     top: 90%;
   }
@@ -96,8 +101,9 @@
 }
 
 .hp-container {
-  background: rgb(57,71,85);
-  background: radial-gradient(circle, rgba(57,71,85,1) 0%, rgba(0,2,4,1) 100%);
+  background: radial-gradient(circle, 
+  rgba(57, 71, 85, 1) 0%, 
+  rgba(0, 2, 4, 1) 100%);
   background-attachment: scroll;
   background-size: cover;
   position: relative;
@@ -114,8 +120,13 @@
   padding: 10vh;
 }
 
-.hp-container-box-heading h2 {
+.hp-container-box h2 {
   font-size: 3rem;
+}
+
+.hp-container-box span,
+.hp-container-box strong {
+  font-family: 'Robot Slab', sans-serif;
 }
 
 .hp-container-box-formbox {
@@ -165,7 +176,8 @@
   cursor: default;
 }
 
-.swiper, .swiper-container {
+.swiper,
+.swiper-container {
   margin-top: 4%;
   margin-left: 50%;
   margin-right: 50%;

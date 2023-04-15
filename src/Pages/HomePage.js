@@ -67,7 +67,8 @@ const HomePage = () => {
     }
   }
 
-  function submitEmail() {
+  function submitEmail(e) {
+    e.preventDefault();
     const emailInput = emailRef.current;
     const payload = {
       email: emailInput.value,
@@ -77,7 +78,7 @@ const HomePage = () => {
 
     axios
       .post("https://localhost:7080/api/EmailsSubscribed", payload)
-      .then((response) => {
+      .then(() => {
         navigate("/home");
       })
       .catch((error) => {

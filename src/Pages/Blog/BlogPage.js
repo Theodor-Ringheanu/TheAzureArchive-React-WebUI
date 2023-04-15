@@ -29,12 +29,11 @@ const BlogPage = () => {
         <Navbar />
       </React.Fragment>
 
-      <div className="page-background">
+      <div className="blog-page-background">
         <img/>
       </div>
-      <div className="app">
-        <h1 style={{ padding: "5%" }
-        }>Posts</h1>
+      <div className="page-title">
+        <h1>Posts</h1>
       </div>
 
       {
