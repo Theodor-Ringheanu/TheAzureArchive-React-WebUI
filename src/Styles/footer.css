@@ -2,22 +2,19 @@
 
 
 .section-padding {
-    padding: 2rem;
+    padding-top: 5rem;
+    padding-bottom: 1.5rem;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .footer {
     font-family: 'Robot Slab', sans-serif;
-    background-image: 
-    /* radial-gradient(circle, rgba(246, 242, 242, 0) 0%, 
-    rgba(0, 0, 0, 1) 89%),  */
-    url(../assets/Images/footer-art.png);
+    background-image:
+        url(../assets/Images/footer-art.png);
     background-size: cover;
     background-repeat: no-repeat;
-    /* background-clip: border-box; */
-    /* border-top: 1px solid #344464; */
-    /* border-right-width: 0px;
-    border-left-width: 0px; */
-    z-index: 100;
+    z-index: 101;
 }
 
 .ft_footer {
@@ -73,9 +70,9 @@ a {
 .ft_footer-links-div p {
     font-family: "Poppins", sans-serif;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 500;
-    padding: 8px 16px;
+    padding: 6px 16px;
     line-height: 15px;
     cursor: pointer;
 }
@@ -89,7 +86,6 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 0.2rem;
 }
 
 hr {

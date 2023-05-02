@@ -16,6 +16,7 @@ const StoryLayout = () => {
   const opacity = Math.max(1 - scrollPosition / 1, 0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     axios
       .get(`https://localhost:7080/api/Stories/${id}`)
       .then((response) => {
@@ -37,7 +38,6 @@ const StoryLayout = () => {
           });
           return paragraphs;
         });
-        window.scrollTo(0, 0);
       });
   }, [id]);
 
@@ -47,6 +47,16 @@ const StoryLayout = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const [isLightOn, setIsLightOn] = useState(false);
+  const handleLightSwitch = () => {
+    setIsLightOn(!isLightOn);
+    if (isLightOn) {
+      document.body.style.backgroundColor = "#111314";
+    } else {
+      document.body.style.backgroundColor = "white";
+    }
+  };
 
   return (
     <Col key={story.id}>
@@ -61,8 +71,8 @@ const StoryLayout = () => {
         <div
           className='content-title'
           style={{ opacity: opacity, }}>
-          <h1>{story.title}</h1>
-          <h2>{story.author}</h2>
+          <h1 className='content-title-story'>{story.title}</h1>
+          <h2 className='content-title-story-author'>{story.author}</h2>
         </div>
 
         <p
@@ -71,7 +81,14 @@ const StoryLayout = () => {
           It all begun with a scroll...
         </p>
 
-        <div className='content'>
+        <div>
+          <button className={!isLightOn ? 'lightSwitch-off' : 'lightSwitch-on'}
+            onClick={handleLightSwitch}>
+          </button>
+        </div>
+
+
+        <div className={!isLightOn ? 'content' : 'content content-light'}>
           {paragraphs.map((paragraph, index) => (
             <React.Fragment key={index}>
               {paragraph}

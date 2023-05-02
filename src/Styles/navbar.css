@@ -8,25 +8,26 @@
   height: 16%;
   width: 100%;
   z-index: 3;
-  transition: .4s ease-in-out;
   top: 0;
   left: 0;
   right: 0;
   font-size: 20px;
+  transition: .4s ease-in-out;
 }
 
 .navbar.active {
   height: 5%;
   background: rgb(57, 71, 85);
-  background: 
-  radial-gradient(circle, #394755 0%, 
-  #000204 100%);
+  background:
+    radial-gradient(circle, #394755 0%,
+      #000204 100%);
   background-size: cover;
   transition: .4s ease-in-out;
   width: 100%;
   top: 0;
   z-index: 3;
   font-size: 20px;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,.5);
 }
 
 .logo-box {
@@ -144,17 +145,17 @@
 }
 
 .navbarX.active {
-  background: radial-gradient(circle, 
-  #394755 0%, 
-  rgba(0, 2, 4, 1) 100%);
-  background-image: url(../assets/Images/navbar-side-art.png);
+  background: radial-gradient(circle,
+      #394755 0%,
+      rgba(0, 2, 4, 1) 100%);
+  /* background-image: url(../assets/Images/navbar-side-art.png); */
   background-position: right;
   background-size: cover;
   top: 0;
   z-index: 3;
   font-size: 20px;
   transition: 0.3s ease-out;
-  /* border-right: solid #394755; */
+  border-right: solid #394755;
   border-right-width: 1px;
   border-left-width: 0px;
 }

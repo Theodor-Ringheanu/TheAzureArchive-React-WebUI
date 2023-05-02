@@ -15,14 +15,14 @@ const Footer = () => {
                 <div className='ft_footer-links'>
                     <div className='ft_footer-links-div'>
                         <h4>General Stuff</h4>
-                        <a href="/about">
-                            <p>About</p>
+                        <a href="/contact">
+                            <p>Contact</p>
                         </a>
                         <a href="/home">
                             <p>Sign Up for Updates</p>
                         </a>
-                        <a href="/contact">
-                            <p>Contact</p>
+                        <a href="/faq">
+                            <p>FAQ</p>
                         </a>
                     </div>
                     <div className='ft_footer-links-div'>
@@ -31,7 +31,10 @@ const Footer = () => {
                             <p>Terms & Conditions</p>
                         </a>
                         <a href="/privacy">
-                            <p>Privacy Notice</p>
+                            <p>Privacy Policy</p>
+                        </a>
+                        <a href="/copyright">
+                            <p>Copyright</p>
                         </a>
                     </div>
                     {/* <div className='ft_footer-links-div'>

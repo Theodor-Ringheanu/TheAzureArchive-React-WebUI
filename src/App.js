@@ -6,7 +6,7 @@ import ShortStoriesPage from './Pages/ShortStories/ShortStoriesPage';
 import StoryLayoutPage from './Pages/ShortStories/StoryLayoutPage';
 import HomePage from './Pages/HomePage';
 import BlogPage from './Pages/Blog/BlogPage';
-import AboutPage from './Pages/AboutPage';
+import PrivacyPage from './Pages/PrivacyPage';
 import AddStoryPage from './Pages/ShortStories/AddStoryPage';
 import AddArticlePage from './Pages/Blog/AddArticlePage';
 import EditStoryPage from './Pages/ShortStories/EditStoryPage';
@@ -26,7 +26,7 @@ export default function App() {
           <Route path='/posts' element={<BlogPage />} />
           <Route path='/short-stories' element={<ShortStoriesPage />} />
           <Route path='/news' element={<NewsPage />} />
-          <Route path='/about' element={<AboutPage />} />
+          <Route path='/privacy' element={<PrivacyPage />} />
           <Route path='/admin' element={<AdminPage />} />
           <Route path='/story/:id' element={<StoryLayoutPage />} />
           <Route path='/article/:id' element={<ArticleLayoutPage />} />

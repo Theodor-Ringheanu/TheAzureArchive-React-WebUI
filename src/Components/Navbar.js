@@ -123,14 +123,6 @@ export default function Navbar() {
     }
 
     const [navbarVisible, setNavbarVisible] = useState(true);
-    const retractEvent = () => {
-        if (navbarVisible) {
-            setNavbarVisible(false);
-        }
-        else {
-            setNavbarVisible(true);
-        }
-    }
 
     window.addEventListener('scroll', changeBackgroundY);
     window.addEventListener('scroll', changeBackgroundX);
@@ -176,16 +168,6 @@ export default function Navbar() {
             ) : (
 
                 <div className={navbarVisible ? 'navbarX active' : 'navbar'}>
-                    {/* <button className={navbarVisible ? 'hideNav-btn' : 'hideNav-btn'}
-                        onClick={retractEvent}>
-                        <FaTimes />
-                    </button>
-                    <button className={navbarVisible ? 'showNav-btn' : 'showNav-btn'}
-                        onClick={retractEvent}>
-                        <FaBars />
-                    </button> */}
-
-
                     <div className="logoX-box">
                         <a href='/home'>
                             <div className='logoX-logo' />
