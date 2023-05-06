@@ -103,7 +103,7 @@ const ArticleLayout = () => {
 
         <div className='app'>
           <Link to={`/article/EditArticle/${encodeURIComponent(article.id)}`} key={article.id}>
-            <h2>(edit)</h2>
+            <h1>(edit)</h1>
           </Link>
         </div>
 

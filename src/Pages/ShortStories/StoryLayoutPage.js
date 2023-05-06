@@ -64,7 +64,7 @@ const StoryLayout = () => {
 
         <div className='app'>
           <Link to={`/story/EditStory/${encodeURIComponent(story.id)}`} key={story.id}>
-            <h2>(edit)</h2>
+            <h3>edit</h3>
           </Link>
         </div>
 

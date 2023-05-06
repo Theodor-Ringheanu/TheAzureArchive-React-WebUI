@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Styles/App.css'
-import '../Styles/privacy.css'
+import '../Styles/legal.css'
 import Navbar from "../Components/Navbar.js";
 import Footer from "../Components/Footer.js";
 
@@ -11,13 +11,13 @@ const AboutPage = () => {
             <div className='navbar-background' />
 
             <div className='header-img' />
-            <div className='privacy'>
-                <h1>Privacy Policy</h1>
+            <div className='header'>
+                <h1>The Declaration of Privacy</h1>
             </div>
 
-            <div className='declaration'>
+            <div className='text'>
                 <h3>When in the course of online interactions,
-                    it becomes necessary for a website to
+                    it becomes necessary for a platform to
                     disclose the privacy policy which governs
                     the collection and use of personal information,
                     a decent respect to the opinions of mankind
@@ -48,7 +48,7 @@ const AboutPage = () => {
                     principles and organizing its powers in such
                     form, as to them shall seem most likely to
                     affect their safety and peace of mind.</h3>
-                <h3>We, therefore, the keepers of The Azure Archive,
+                <h3>We, therefore, the Keepers of The Azure Archive,
                     do solemnly publish and declare, that we have
                     established policies for the protection of
                     user privacy and data security, and that we
@@ -66,11 +66,10 @@ const AboutPage = () => {
                     internet. Notwithstanding, we remain vigilant
                     in ensuring the proper collection, processing,
                     and retention of personal information, and
-                    this Privacy Policy shall serve as the
+                    this Declaration shall serve as the
                     foundation for the protection of our users’
                     privacy and data security, and shall remain
-                    in force and effect as long as our web
-                    application exists.</h3>
+                    in force and effect as long as our platform exists.</h3>
 
             </div>
             

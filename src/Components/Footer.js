@@ -27,9 +27,6 @@ const Footer = () => {
                     </div>
                     <div className='ft_footer-links-div'>
                         <h4>Legal Jabber</h4>
-                        <a href="/terms-and-conditions">
-                            <p>Terms & Conditions</p>
-                        </a>
                         <a href="/privacy">
                             <p>Privacy Policy</p>
                         </a>

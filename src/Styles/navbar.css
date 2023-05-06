@@ -148,7 +148,6 @@
   background: radial-gradient(circle,
       #394755 0%,
       rgba(0, 2, 4, 1) 100%);
-  /* background-image: url(../assets/Images/navbar-side-art.png); */
   background-position: right;
   background-size: cover;
   top: 0;
@@ -158,6 +157,7 @@
   border-right: solid #394755;
   border-right-width: 1px;
   border-left-width: 0px;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,.5);
 }
 
 .logoX-box {
