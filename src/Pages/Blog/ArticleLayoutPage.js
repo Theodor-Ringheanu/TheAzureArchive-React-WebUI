@@ -108,21 +108,23 @@ const ArticleLayout = () => {
         </div>
 
         <div>
-          <button  className={!isLightOn ? 'lightSwitch-off' :'lightSwitch-on'} onClick={handleLightSwitch}>
-          </button>
+          {scrollPosition >= 1 ? (
+            <button className={!isLightOn ? 'lightSwitch-off' : 'lightSwitch-on'}
+              onClick={handleLightSwitch}>
+            </button>) : (<h1></h1>)}
         </div>
 
         <div
-          className={!isLightOn ? 'content-title content-title-article' 
-          : 'content-title content-title-article-light'}>
+          className={!isLightOn ? 'content-title content-title-article'
+            : 'content-title content-title-article-light'}>
           <h2>{article.author}</h2>
           <h1>{article.title}</h1>
           <h2>{publicationDate ? article.publicationDate : publicationDate} · {numWords} words · {Math.floor(numWords / 160)} mins</h2>
         </div>
 
         <div
-          className={!isLightOn ? 'content content-article' 
-          : 'content content-light content-article'}>
+          className={!isLightOn ? 'content content-article'
+            : 'content content-light content-article'}>
           {paragraphs.map((paragraph, index) => (
             <React.Fragment key={index}>
               <p>{paragraph}</p>
@@ -138,8 +140,8 @@ const ArticleLayout = () => {
             opacity: partialOpacity(),
             filter: `blur(${blur()}px)`,
           }}>
-          <div className={!isLightOn ? 'article-gradient-overlay' 
-          : 'article-gradient-overlay article-gradient-overlay-light'}>
+          <div className={!isLightOn ? 'article-gradient-overlay'
+            : 'article-gradient-overlay article-gradient-overlay-light'}>
           </div>
         </div>
       </div>

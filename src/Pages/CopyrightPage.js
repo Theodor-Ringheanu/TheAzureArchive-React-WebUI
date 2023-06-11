@@ -67,7 +67,7 @@ const AboutPage = () => {
                         obligation to seek approval from The Azure Archive.</h3>
                     <h3>1.4 The Azure Archive acknowledges and respects the
                         moral rights of Authors, including the right to be
-                        identified as the creator of their Stories.</h3>
+                        identified as the creators of their Stories.</h3>
                 </div>
 
                 <h2>Article III: Artist's Rights</h2>

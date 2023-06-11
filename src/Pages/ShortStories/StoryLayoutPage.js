@@ -82,9 +82,10 @@ const StoryLayout = () => {
         </p>
 
         <div>
-          <button className={!isLightOn ? 'lightSwitch-off' : 'lightSwitch-on'}
-            onClick={handleLightSwitch}>
-          </button>
+          {scrollPosition >= 1 ? (
+            <button className={!isLightOn ? 'lightSwitch-off' : 'lightSwitch-on'}
+              onClick={handleLightSwitch}>
+            </button>) : (<h1></h1>)}
         </div>
 
 
