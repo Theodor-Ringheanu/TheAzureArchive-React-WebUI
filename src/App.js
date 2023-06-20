@@ -14,6 +14,7 @@ import EditArticlePage from './Pages/Blog/EditArticlePage';
 import ArticleLayoutPage from './Pages/Blog/ArticleLayoutPage';
 import AdminPage from './Pages/Admin/AdminPage';
 import CopyrightPage from './Pages/CopyrightPage';
+import AboutPage from './Pages/AboutPage';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path='/posts' element={<BlogPage />} />
         <Route path='/short-stories' element={<ShortStoriesPage />} />
         <Route path='/privacy' element={<PrivacyPage />} />
+        <Route path='/about' element={<AboutPage />} />
         <Route path='/copyright' element={<CopyrightPage />} />
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/story/:id' element={<StoryLayoutPage />} />
@@ -31,6 +33,9 @@ export default function App() {
         <Route path='/AddArticle' element={<AddArticlePage />} />
         <Route path='/story/EditStory/:id' element={<EditStoryPage />} />
         <Route path='/article/EditArticle/:id' element={<EditArticlePage />} />
+        <Route path='/faq' element={<AboutPage />} />
+        <Route path='/contact' element={<AboutPage />} />
+        
       </Routes>
     </div>
   );

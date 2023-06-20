@@ -4,7 +4,7 @@ import '../Styles/legal.css'
 import Navbar from "../Components/Navbar.js";
 import Footer from "../Components/Footer.js";
 
-const AboutPage = () => {
+const PrivacyPage = () => {
     return (
         <div className="ap">
             <Navbar />
@@ -30,7 +30,7 @@ const AboutPage = () => {
                     these are privacy, security, and the pursuit
                     of personal data protection. That to secure
                     these rights, privacy policies are instituted
-                    among websites, deriving their just powers
+                    among web platforms, deriving their just powers
                     from the consent of the users.</h3>
                 <h3>Prudence, indeed, will dictate that privacy
                     policies should not be changed for light
@@ -57,7 +57,7 @@ const AboutPage = () => {
                     As we pledge to use appropriate technological
                     and operational security measures to protect
                     personal information collected through the
-                    use our website, and to use such information
+                    use our platform, and to use such information
                     solely for the purposes for which it was
                     unequivocally collected, or with the consent
                     of the user, we must acknowledge in good faith
@@ -79,4 +79,4 @@ const AboutPage = () => {
     );
 }
 
-export default AboutPage;
+export default PrivacyPage;

@@ -30,9 +30,26 @@ const StoryLayout = () => {
           splitContent.forEach((p) => {
             if (p.startsWith('*') && p.endsWith('*')) {
               const text = p.slice(1, -1);
-              paragraphs.push(<h3 key={p}>{text}</h3>);
+              paragraphs.push(<h3 key={p} style={{ textAlign: 'center', margin: '0 auto' }}>{text}</h3>);
+            } else if (p.startsWith('_') && p.endsWith('_')) {
+              const text = p.slice(1, -1);
+              paragraphs.push(<p key={p}><i>{text}</i></p>);
+            } else if (p.startsWith('+') && p.endsWith('+')) {
+              const text = p.slice(1, -1);
+              paragraphs.push(<h3 key={p} style={{ textAlign: 'center' }}><i>{text}</i></h3>);
             } else {
-              paragraphs.push(<p key={p}>{p}</p>);
+              const words = p.split(' ');
+              const formattedParagraph = [];
+              words.forEach((word, index) => {
+                if (word.startsWith('_') && word.endsWith('_')) {
+                  const text = word.slice(1, -1);
+                  formattedParagraph.push(<i key={index}>{text}</i>);
+                } else {
+                  formattedParagraph.push(word);
+                }
+                formattedParagraph.push(' ');
+              });
+              paragraphs.push(<p key={p}>{formattedParagraph}</p>);
             }
             paragraphs.push(<br key={`${p}_br`} />);
           });
@@ -40,7 +57,8 @@ const StoryLayout = () => {
         });
       });
   }, [id]);
-
+  
+  
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {

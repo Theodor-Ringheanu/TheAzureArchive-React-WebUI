@@ -4,7 +4,7 @@ import '../Styles/legal.css'
 import Navbar from "../Components/Navbar.js";
 import Footer from "../Components/Footer.js";
 
-const AboutPage = () => {
+const CopyrightPage = () => {
     return (
         <div className="ap">
             <Navbar />
@@ -66,7 +66,7 @@ const AboutPage = () => {
                         or granting additional licenses, without any
                         obligation to seek approval from The Azure Archive.</h3>
                     <h3>1.4 The Azure Archive acknowledges and respects the
-                        moral rights of Authors, including the right to be
+                        moral rights of Authors, including the right to be or not to be
                         identified as the creators of their Stories.</h3>
                 </div>
 
@@ -100,7 +100,7 @@ const AboutPage = () => {
                     <h3>1.1 The Azure Archive pledges to investigate any
                         alleged infringement of intellectual property rights
                         brought to its attention.</h3>
-                    <h3>1.2 If The Azure Archive finds substantial evidence
+                    <h3>1.2 Would The Azure Archive find substantial evidence
                         supporting the claim of infringement, it will
                         promptly take appropriate action, including but not
                         limited to removing the infringing content from its
@@ -116,4 +116,4 @@ const AboutPage = () => {
     );
 }
 
-export default AboutPage;
+export default CopyrightPage;
