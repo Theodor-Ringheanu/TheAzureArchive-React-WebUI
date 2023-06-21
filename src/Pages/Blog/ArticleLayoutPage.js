@@ -55,7 +55,7 @@ const ArticleLayout = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     axios
-    .get(`https://localhost:7080/api/Articles/${id}`)
+      .get(`https://localhost:7080/api/Articles/${id}`)
       .then((response) => {
         setArticle(() => {
           return response.data.value;
@@ -178,16 +178,21 @@ const ArticleLayout = () => {
           ))}
         </div>
 
-        <div
-          className='content-background content-background-article'
-          style={{
-            backgroundImage: `url(${article.imageUrl})`,
-            opacity: partialOpacity(),
-            filter: `blur(${blur()}px)`,
-          }}>
-          <div className={!isLightOn ? 'article-gradient-overlay'
-            : 'article-gradient-overlay article-gradient-overlay-light'}>
-          </div>
+        <div className="content-background content-background-article">
+          <div
+            className="blur-overlay"
+            style={{
+              backgroundImage: `url(${article.imageUrl})`,
+              filter: `blur(${blur()}px)`,
+            }}
+          ></div>
+          <div
+            className={
+              !isLightOn
+                ? "article-gradient-overlay"
+                : "article-gradient-overlay article-gradient-overlay-light"
+            }
+          ></div>
         </div>
       </div>
 
