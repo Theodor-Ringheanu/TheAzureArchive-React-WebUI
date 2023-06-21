@@ -47,7 +47,6 @@ const ShortStoriesPage = () => {
 
       <div className="story-intro">
         <h1>Short Stories</h1>
-        {/* <h2>Another word here</h2> */}
       </div>
 
       <div>
@@ -55,9 +54,9 @@ const ShortStoriesPage = () => {
           stories?.length > 0 ? (
             <div className="story-container">
               {stories.map((story) => (
-                <Link to={`/story/${encodeURIComponent(story.id)}`} key={story.id}>
+                <a href={`/story/${encodeURIComponent(story.id)}`} key={story.id}>
                   <StoryCover story={story} />
-                </Link>
+                </a>
               ))}
 
               <div>
@@ -77,7 +76,7 @@ const ShortStoriesPage = () => {
             </div>
           ) : (
             <div className="empty">
-              <h2>No stories found</h2>
+              <h2></h2>
             </div>
           )
         }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import jwt_decode from "jwt-decode";
+import { HashLink as Link} from "react-router-hash-link";
 import { FaBars, FaTimes } from 'react-icons/fa';
 import '../Styles/footer.css';
 import '../Styles/navbar.css';
@@ -108,7 +109,7 @@ export default function Navbar() {
 
     const [navbarY, setNavbarY] = useState(false);
     const changeBackgroundY = () => {
-        if (window.scrollY >= 80) {
+        if (window.scrollY >= 0) {
             setNavbarY(true);
         } else {
             setNavbarY(false);
@@ -117,7 +118,7 @@ export default function Navbar() {
 
     const [navbarX, setNavbarX] = useState(false)
     const changeBackgroundX = () => {
-        if (window.scrollX >= 600) {
+        if (window.scrollX >= 1) {
             setNavbarX(true);
         }
     }
@@ -129,22 +130,18 @@ export default function Navbar() {
 
     return (
         <div>
-
             {!navbarX ? (
                 <div className={navbarY ? 'navbar active' : 'navbar'}>
                     <div className="logo-box">
-                        <a href='/home'>
                             <div className={navbarY ? 'logo-text-logo active'
                                 : 'logo-text-logo'} />
-                        </a>
                     </div>
 
                     <nav ref={navRef}>
                         <a href="/home">Home</a>
                         <a href="/posts">Posts</a>
-                        {/* <a href="/news">.news</a> */}
                         <a href="/short-stories">Short Stories</a>
-                        <a href="/about">About</a>
+                        <a href="/about#">About</a>
                         <a href="/admin">[admin]</a>
 
                         <button className='nav-btn nav-close-btn' onClick={showNavbar}>
@@ -169,14 +166,11 @@ export default function Navbar() {
 
                 <div className={navbarVisible ? 'navbarX active' : 'navbar'}>
                     <div className="logoX-box">
-                        <a href='/home'>
                             <div className='logoX-logo' />
-                        </a>
                     </div>
 
                     <a href="/home">Home</a>
                     <a href="/posts">Posts</a>
-                    {/* <a href="/news">.news</a> */}
                     <a href="/short-stories">Short Stories</a>
                     <a href="/about">About</a>
                     <a href="/admin">admin</a>

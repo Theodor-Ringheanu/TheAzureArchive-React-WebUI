@@ -99,7 +99,7 @@ const HomePage = () => {
       </div>
 
       <div className="hp-container">
-        <div className="hp-container-box">
+        <div className="hp-container-box" id='updates'>
           <div className='hp-container-box-heading'>
             <h2>
               SIGN UP FOR MONTHLY UPDATES

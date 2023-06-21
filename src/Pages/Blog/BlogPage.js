@@ -62,7 +62,7 @@ const BlogPage = () => {
           </div>
         ) : (
           <div className="empty">
-            <h2>No articles found</h2>
+            <h2></h2>
           </div>
         )
       }

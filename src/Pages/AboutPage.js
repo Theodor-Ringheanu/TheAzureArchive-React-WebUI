@@ -13,8 +13,8 @@ const AboutPage = () => {
                 <h1>About</h1>
             </div>
 
-            <div className='about-box'>
-                <h2>Can I publish my own articles and stories?</h2>
+            <div className='faq-box' id='faq'>
+                <h2 id='contact'>Can I publish my own articles and stories?</h2>
                 <h3>Hit me up at the azurearchive@gmail.com and we’ll go from there.</h3>
                 <h2>Is fanfiction allowed?</h2>
                 <h3>As long as you have a written permission from the rightful owners or they’ve

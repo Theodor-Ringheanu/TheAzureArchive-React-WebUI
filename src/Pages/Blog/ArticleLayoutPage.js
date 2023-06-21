@@ -52,6 +52,51 @@ const ArticleLayout = () => {
       });
   }, [id]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    axios
+    .get(`https://localhost:7080/api/Articles/${id}`)
+      .then((response) => {
+        setArticle(() => {
+          return response.data.value;
+        });
+        setParagraphs(() => {
+          const content = response.data.value.content;
+          const splitContent = content.split('\n\n');
+          const paragraphs = [];
+          splitContent.forEach((p) => {
+            if (p.startsWith('*') && p.endsWith('*')) {
+              const text = p.slice(1, -1);
+              paragraphs.push(<h3 key={p} style={{ textAlign: 'center', margin: '0 auto' }}>{text}</h3>);
+            } else if (p.startsWith('_') && p.endsWith('_')) {
+              const text = p.slice(1, -1);
+              paragraphs.push(<p key={p}><i>{text}</i></p>);
+            } else if (p.startsWith('+') && p.endsWith('+')) {
+              const text = p.slice(1, -1);
+              paragraphs.push(<h3 key={p} style={{ textAlign: 'center' }}><i>{text}</i></h3>);
+            } else {
+              const words = p.split(' ');
+              const formattedParagraph = [];
+              words.forEach((word, index) => {
+                if (word.startsWith('_') && word.endsWith('_')) {
+                  const text = word.slice(1, -1);
+                  formattedParagraph.push(<i key={index}>{text}</i>);
+                } else {
+                  formattedParagraph.push(word);
+                }
+                formattedParagraph.push(' ');
+              });
+              paragraphs.push(<p key={p}>{formattedParagraph}</p>);
+            }
+          });
+          return paragraphs;
+        });
+        setNumWords(() => {
+          return response.data.value.content.split(/\s+/).length;
+        });
+      });
+  }, [id]);
+
   console.log(article.publicationDate);
 
   useEffect(() => {
@@ -102,9 +147,9 @@ const ArticleLayout = () => {
         </React.Fragment>
 
         <div className='app'>
-          <Link to={`/article/EditArticle/${encodeURIComponent(article.id)}`} key={article.id}>
+          <a href={`/article/EditArticle/${encodeURIComponent(article.id)}`} key={article.id}>
             <h1>(edit)</h1>
-          </Link>
+          </a>
         </div>
 
         <div>

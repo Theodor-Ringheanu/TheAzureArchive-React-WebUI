@@ -13,11 +13,11 @@
   right: 0;
   font-size: 20px;
   transition: .4s ease-in-out;
+  text-decoration: none;
 }
 
 .navbar.active {
   height: 5%;
-  background: rgb(57, 71, 85);
   background:
     radial-gradient(circle, #394755 0%,
       #000204 100%);
@@ -31,6 +31,7 @@
 }
 
 .logo-box {
+  outline: none;
   padding-left: 5%;
   display: block;
   width: 28%;

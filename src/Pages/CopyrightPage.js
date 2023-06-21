@@ -71,7 +71,7 @@ const CopyrightPage = () => {
                 </div>
 
                 <h2>Article III: Artist's Rights</h2>
-                <div className='copyright'>
+                <div className='copyright' id='copyright'>
                     <h3>Section 1: Ownership and Rights</h3>
                     <h3>1.1 Artwork creators or artwork copyright owners,
                         herein referred to as "Artists," retain full

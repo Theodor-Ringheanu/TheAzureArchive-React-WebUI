@@ -10,7 +10,7 @@ const PrivacyPage = () => {
             <Navbar />
             <div className='navbar-background' />
 
-            <div className='header-img' />
+            <div className='header-img' id='privacy'/>
             <div className='header'>
                 <h1>The Declaration of Privacy</h1>
             </div>

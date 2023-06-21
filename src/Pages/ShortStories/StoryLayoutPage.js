@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
 import '../../Styles/App.css';
+import Navbar from "../../Components/Navbar.js";
 import Footer from "../../Components/Footer.js";
 
 const StoryLayout = () => {
@@ -57,8 +58,8 @@ const StoryLayout = () => {
         });
       });
   }, [id]);
-  
-  
+
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -78,6 +79,11 @@ const StoryLayout = () => {
 
   return (
     <Col key={story.id}>
+
+      <React.Fragment>
+        <Navbar />
+      </React.Fragment>
+
       <div>
 
         <div className='app'>

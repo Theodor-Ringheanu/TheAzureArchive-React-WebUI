@@ -1,4 +1,5 @@
 import React from 'react';
+import { HashLink as Link} from "react-router-hash-link";
 import '../Styles/App.css';
 // import li from '../assets/Images/linkedin_icon.png';
 // import fb from '../assets/Images/facebook_icon.png';
@@ -15,24 +16,24 @@ const Footer = () => {
                 <div className='ft_footer-links'>
                     <div className='ft_footer-links-div'>
                         <h4>General Stuff</h4>
-                        <a href="/contact">
+                        <Link smooth to="/about#contact">
                             <p>Contact</p>
-                        </a>
-                        <a href="/home">
+                        </Link>
+                        <Link smooth to="/home#updates">
                             <p>Sign Up for Updates</p>
-                        </a>
-                        <a href="/faq">
+                        </Link>
+                        <Link smooth to="/about#faq">
                             <p>FAQ</p>
-                        </a>
+                        </Link>
                     </div>
                     <div className='ft_footer-links-div'>
                         <h4>Legal Jabber</h4>
-                        <a href="/privacy">
+                        <Link instant to="/privacy#">
                             <p>Privacy Policy</p>
-                        </a>
-                        <a href="/copyright">
+                        </Link>
+                        <Link instant to="/copyright#">
                             <p>Copyright</p>
-                        </a>
+                        </Link>
                     </div>
                     {/* <div className='ft_footer-links-div'>
                         <div className='socialMedia'>

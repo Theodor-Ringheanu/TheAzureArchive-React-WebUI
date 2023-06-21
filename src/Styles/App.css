@@ -328,7 +328,6 @@ textarea {
   transition: 1s background ease;
 }
 
-
 .blog-page-background {
   position: fixed;
   z-index: -1;
@@ -337,7 +336,7 @@ textarea {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-image: url(../assets/Images/mountain_castle2.avif);
+  background-image: url(../assets/Images/blog_background.jpg);
 }
 
 .page-background-story {
