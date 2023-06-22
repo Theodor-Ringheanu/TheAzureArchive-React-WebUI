@@ -32,6 +32,7 @@ body {
   background-color: #111314;
   background-size: cover;
 }
+
 body .light{
   background-color: #ffffff;
 }
@@ -160,6 +161,17 @@ body .light{
   background-image: url(../assets/Images/maketh_dusk.png);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(0);
+  pointer-events: none;
+  background-size: cover;
 }
 
 .content-title {
@@ -395,18 +407,6 @@ textarea {
   box-sizing: border-box;
   background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), #010913 10%, #010913, #010913 90%, rgba(0, 0, 0, 0));
 }
-
-.blur-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(0);
-  pointer-events: none;
-  background-size: cover;
-}
-
 
 @media screen and (max-width: 600px) {
   .app {

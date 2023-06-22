@@ -139,7 +139,7 @@ export default function Navbar() {
 
                     <nav ref={navRef}>
                         <a href="/home">Home</a>
-                        <a href="/posts">Posts</a>
+                        <a href="/posts">Articles</a>
                         <a href="/short-stories">Short Stories</a>
                         <a href="/about#">About</a>
                         <a href="/admin">[admin]</a>

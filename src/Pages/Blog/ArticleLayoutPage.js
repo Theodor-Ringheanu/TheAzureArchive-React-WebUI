@@ -17,14 +17,6 @@ const ArticleLayout = () => {
   };
   const [numWords, setNumWords] = useState(0);
 
-  const partialOpacity = () => {
-    let i = 1 - scrollPosition / 200;
-    if (i > 1) {
-      return i;
-    }
-    else return 1;
-  };
-
   const blur = () => {
     if (scrollPosition / 50 > 0 && scrollPosition / 50 < 10) {
       return scrollPosition / 10;

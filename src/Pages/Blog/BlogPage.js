@@ -30,20 +30,22 @@ const BlogPage = () => {
       </React.Fragment>
 
       <div className="blog-page-background">
-        <img/>
+        <img />
       </div>
       <div className="page-title">
-        <h1>Posts</h1>
+        <h1>Articles</h1>
       </div>
 
       {
         articles?.length > 0 ? (
           <div className="cover-container">
-            {articles.map((article) => (
-              <Link to={`/article/${encodeURIComponent(article.id)}`} key={article.id}>
-                <ArticleCover article={article} />
-              </Link>
-            ))}
+            {articles
+              .sort((a, b) => new Date(b.publicationDate) - new Date(a.publicationDate))
+              .map((article) => (
+                <Link to={`/article/${encodeURIComponent(article.id)}`} key={article.id}>
+                  <ArticleCover article={article} />
+                </Link>
+              ))}
 
             <div>
               <Link to={`/AddArticle`}>

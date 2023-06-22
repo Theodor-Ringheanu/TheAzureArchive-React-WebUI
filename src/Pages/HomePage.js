@@ -12,11 +12,14 @@ import 'swiper/css/effect-coverflow';
 import { Swiper, SwiperSlide, } from 'swiper/react';
 import { EffectCoverflow } from 'swiper';
 
+import ArticleCover from '../Components/ArticleCover';
 import StoryCover from '../Components/StoryCover';
 import axios from 'axios';
 
 const HomePage = () => {
   const [stories, setStories] = useState([]);
+  const [articles, setArticles] = useState([]);
+  const publications = [...stories, ...articles];
 
   useEffect(() => {
     axios
@@ -24,28 +27,37 @@ const HomePage = () => {
       .then((response) => {
         setStories(response.data.value);
       })
-      .catch(() => {
-        alert('Failed to fetch stories!');
-      });
+    axios
+      .get("https://localhost:7080/api/Articles")
+      .then((response) => {
+        setArticles(response.data.value);
+      })
   }, []);
 
+  publications.sort(() => Math.random() - 0.5);
+
   const renderSwiperSlides = (startIndex, endIndex) => {
-    return stories?.length > 0 ? (
+    return publications.length > 0 ? (
       <div>
-        {stories
-          .sort((a, b) => new Date(b.publicationDate) - new Date(a.publicationDate))
+        {publications
           .slice(startIndex, endIndex)
-          .map((story) => (
-            <SwiperSlide key={story.id}>
-              <Link to={`/story/${encodeURIComponent(story.id)}`} key={story.id}>
-                <StoryCover story={story} />
-              </Link>
+          .map((item) => (
+            <SwiperSlide key={item.id}>
+              {item.series ? (
+                <Link to={`/story/${encodeURIComponent(item.id)}`} key={item.id}>
+                  <StoryCover story={item} />
+                </Link>
+              ) : (
+                <Link to={`/article/${encodeURIComponent(item.id)}`} key={item.id}>
+                  <ArticleCover article={item} />
+                </Link>
+              )}
             </SwiperSlide>
           ))}
       </div>
     ) : (
       <div className="empty">
-        <h2>No stories found</h2>
+        <h2>No publications found</h2>
       </div>
     );
   };

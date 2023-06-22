@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../../Styles/App.css";
 import "../../Styles/contentPage.css";
 import add_story from "../../assets/Images/add_story.jpg";
@@ -42,7 +42,7 @@ const ShortStoriesPage = () => {
   return (
     <div>
       <div className="page-background-story">
-        <img/>
+        <img />
       </div>
 
       <div className="story-intro">
@@ -53,11 +53,13 @@ const ShortStoriesPage = () => {
         {
           stories?.length > 0 ? (
             <div className="story-container">
-              {stories.map((story) => (
-                <a href={`/story/${encodeURIComponent(story.id)}`} key={story.id}>
-                  <StoryCover story={story} />
-                </a>
-              ))}
+              {stories
+                .sort((a, b) => new Date(b.publicationDate) - new Date(a.publicationDate))
+                .map((story) => (
+                  <a href={`/story/${encodeURIComponent(story.id)}`} key={story.id}>
+                    <StoryCover story={story} />
+                  </a>
+                ))}
 
               <div>
                 <Link to={`/AddStory`}>

@@ -5,7 +5,7 @@ const ArticleCover = ({ article }) => {
         <div className='story-box'>
             <div className="cover">
                 <div style={{ zIndex: 3 }}>
-                    <span></span>
+                    <span>{article.publicationDate}</span>
                 </div>
 
                 <div>

@@ -22,8 +22,8 @@ const Footer = () => {
                         <Link smooth to="/home#updates">
                             <p>Sign Up for Updates</p>
                         </Link>
-                        <Link smooth to="/about#faq">
-                            <p>FAQ</p>
+                        <Link smooth to="/about#Q&A">
+                            <p>Q&A</p>
                         </Link>
                     </div>
                     <div className='ft_footer-links-div'>
