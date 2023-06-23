@@ -1,9 +1,6 @@
 import React from 'react';
 import { HashLink as Link} from "react-router-hash-link";
 import '../Styles/App.css';
-// import li from '../assets/Images/linkedin_icon.png';
-// import fb from '../assets/Images/facebook_icon.png';
-
 
 const Footer = () => {
     return (
@@ -15,7 +12,7 @@ const Footer = () => {
                 </div>
                 <div className='ft_footer-links'>
                     <div className='ft_footer-links-div'>
-                        <h4>General Stuff</h4>
+                        <h4>Good To Know</h4>
                         <Link smooth to="/about#contact">
                             <p>Contact</p>
                         </Link>
@@ -35,12 +32,7 @@ const Footer = () => {
                             <p>Copyright</p>
                         </Link>
                     </div>
-                    {/* <div className='ft_footer-links-div'>
-                        <div className='socialMedia'>
-                            <p><img alt="social media icon1" src={li}></img></p>
-                            <p><img alt="social media icon2" src={fb}></img></p>
-                        </div>
-                    </div> */}
+                    
                 </div>
 
                 <div className='ft_footer-below'>

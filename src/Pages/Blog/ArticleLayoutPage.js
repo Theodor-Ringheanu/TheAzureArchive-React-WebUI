@@ -28,23 +28,6 @@ const ArticleLayout = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(`https://localhost:7080/api/Articles/${id}`)
-      .then((response) => {
-        setArticle(() => {
-          return response.data.value;
-        });
-        setParagraphs(() => {
-          return response.data.value.content.split('\n\n');
-        });
-        setNumWords(() => {
-          return response.data.value.content.split(/\s+/).length;
-        });
-        window.scrollTo(0, 0);
-      });
-  }, [id]);
-
-  useEffect(() => {
     window.scrollTo(0, 0);
     axios
       .get(`https://localhost:7080/api/Articles/${id}`)

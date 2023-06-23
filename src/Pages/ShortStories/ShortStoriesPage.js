@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../Styles/App.css";
-import "../../Styles/contentPage.css";
+import "../../Styles/covers.css";
 import add_story from "../../assets/Images/add_story.jpg";
 import StoryCover from "../../Components/StoryCover";
 import Navbar from "../../Components/Navbar.js";
@@ -87,8 +87,6 @@ const ShortStoriesPage = () => {
       <React.Fragment>
         <Navbar />
       </React.Fragment>
-
-      {/* <Footer /> */}
     </div>
   );
 };

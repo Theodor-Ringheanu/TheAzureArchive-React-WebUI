@@ -1,17 +1,5 @@
 /* story covers */
 
-.story-container {
-  width: 100%;
-  max-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-left: 100%;
-  top: 0px;
-  bottom: 0px;
-}
-
 .story-intro {
   font-family: 'Marcellus SC', serif;
   position: absolute;
@@ -24,6 +12,18 @@
   font-family: 'Roboto Slab', sans-serif;
   text-align: left;
   font-size: 25px;
+}
+
+.story-container {
+  min-height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 100%;
+  top: 0px;
+  bottom: 0px;
 }
 
 .story {

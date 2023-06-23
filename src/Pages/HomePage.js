@@ -44,13 +44,13 @@ const HomePage = () => {
           .map((item) => (
             <SwiperSlide key={item.id}>
               {item.series ? (
-                <Link to={`/story/${encodeURIComponent(item.id)}`} key={item.id}>
+                <a href={`/story/${encodeURIComponent(item.id)}`} key={item.id}>
                   <StoryCover story={item} />
-                </Link>
+                </a>
               ) : (
-                <Link to={`/article/${encodeURIComponent(item.id)}`} key={item.id}>
+                <a href={`/article/${encodeURIComponent(item.id)}`} key={item.id}>
                   <ArticleCover article={item} />
-                </Link>
+                </a>
               )}
             </SwiperSlide>
           ))}

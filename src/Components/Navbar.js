@@ -123,7 +123,7 @@ export default function Navbar() {
         }
     }
 
-    const [navbarVisible, setNavbarVisible] = useState(true);
+    const [navbarVisible] = useState(true);
 
     window.addEventListener('scroll', changeBackgroundY);
     window.addEventListener('scroll', changeBackgroundX);
@@ -142,7 +142,7 @@ export default function Navbar() {
                         <a href="/posts">Articles</a>
                         <a href="/short-stories">Short Stories</a>
                         <a href="/about#">About</a>
-                        <a href="/admin">[admin]</a>
+                        {/* <a href="/admin">[admin]</a> */}
 
                         <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                             <FaTimes />
@@ -153,14 +153,6 @@ export default function Navbar() {
                         <FaBars />
                     </button>
 
-                    {/* <div>
-                {!isSignedIn && <div className="google-btn" id="signInDiv" />}
-                {isSignedIn && (
-                    <button className="google-btn" onClick={handleSignOut}>
-                        Sign Out
-                    </button>
-                )}
-            </div> */}
                 </div>
             ) : (
 
@@ -173,7 +165,7 @@ export default function Navbar() {
                     <a href="/posts">Posts</a>
                     <a href="/short-stories">Short Stories</a>
                     <a href="/about">About</a>
-                    <a href="/admin">admin</a>
+                    {/* <a href="/admin">admin</a> */}
 
                     <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                         <FaTimes />
@@ -183,14 +175,6 @@ export default function Navbar() {
                         <FaBars />
                     </button>
 
-                    {/* <div>
-            {!isSignedIn && <div className="google-btn" id="signInDiv" />}
-            {isSignedIn && (
-                <button className="google-btn" onClick={handleSignOut}>
-                    Sign Out
-                </button>
-            )}
-        </div> */}
                 </div>
             )};
         </div>

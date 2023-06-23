@@ -42,9 +42,9 @@ const BlogPage = () => {
             {articles
               .sort((a, b) => new Date(b.publicationDate) - new Date(a.publicationDate))
               .map((article) => (
-                <Link to={`/article/${encodeURIComponent(article.id)}`} key={article.id}>
+                <a href={`/article/${encodeURIComponent(article.id)}`} key={article.id}>
                   <ArticleCover article={article} />
-                </Link>
+                </a>
               ))}
 
             <div>

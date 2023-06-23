@@ -6,113 +6,61 @@
     display: block;
     transition: opacity ease-in 0.3s;
     box-sizing: border-box;
-    background-image:
-        url(../assets/Images/old_paper_texture.jpg);
+    background-image: linear-gradient(rgba(54, 71, 86, 0.5),
+            rgb(4, 6, 7)),
+        url(https://universe.leagueoflegends.com/esimages/Universe_Explore_BG_orig__3pIBC.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
-}
-
-.about-header {
-    background-image:
-        url(../assets/Images/the_azure_archive.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    width: 100%;
-    height: 50vh;
-    border-bottom: 3px black;
-    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, .5);
-    z-index: 3;
-    display: flex;
-    align-items: center;
-}
-
-.about-header h1 {
-    font-size: 7rem;
-    text-align: center;
-    text-shadow: 0 1px 30px 0 rgba(0, 0, 0, .5);
 }
 
 .section {
+    padding-top: 8vh;
+    padding-bottom: 8vh;
     display: flex;
 }
 
 .section-header {
-    position: relative;
     width: 50%;
-    background: radial-gradient(circle,
-            #586c80 0%,
-            rgb(6, 28, 49) 100%);
-    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, .5);
+    background-image: url(../assets/Images/puddle-frame.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
     display: flex;
     align-items: center;
+    text-align: center;
     z-index: 2;
 }
 
+.section-header .two {
+    background-image: url(../assets/Images/old_paper_texture.jpg);
+}
+
 .section-header h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     text-align: center;
-    text-shadow: 0 1px 30px 0 rgba(0, 0, 0, .5);
+    text-shadow: 5px 10px 50px rgba(0, 0, 0, 0.5);
 }
 
-.section-header.wide{
-    height: 10vh;
-    width: 100%;
-    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, .5);
-    display: flex;
-    align-items: center;
-    z-index: 1;
-}
-.section-header.wide h1{
-    text-align: center;
-    padding: 0;
-}
-
-.history-box {
+.box {
     padding-top: 2%;
     padding-bottom: 2%;
     position: relative;
     width: 50%;
-    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, .5);
     z-index: 1;
 }
-.history-box.wide{
-    width: 100%;
-    box-shadow: none;
-}
 
-.history-box h3 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400 !important;
-    font-size: 30px;
-    text-align: center;
-    letter-spacing: .010em;
-    width: 100%;
-    margin: 0 auto;
-    z-index: 1;
-    transition: .5s;
-    padding-top: 2%;
-}
-
-.faq-box {
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-
-.about h2 {
-    background: linear-gradient(90deg,
+.box h2 {
+    background: linear-gradient(-90deg,
             rgb(225, 185, 152) 75%,
-            rgba(0, 2, 4, 1) 100%);
+            rgba(0, 2, 4, 1) 200%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: .010em;
     font-size: 25px;
     text-align: left;
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
     margin-bottom: 22px;
     z-index: 1;
@@ -120,20 +68,33 @@
     padding-top: 2%;
 }
 
-.about h3 {
+.box h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600 !important;
+    letter-spacing: .015em;
+    z-index: 1;
+    transition: .5s;
     background: linear-gradient(90deg,
-            rgb(57, 71, 85),
-            rgba(0, 2, 4, 1) 75%);
+            #edf4fc 75%,
+            #394755 200%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 25px;
     text-align: left;
-    width: 60%;
-    margin: 0 auto;
+    width: 70%;
     margin-top: 22px;
     margin-bottom: 22px;
-    z-index: 1;
-    transition: .5s;
+    text-shadow: 2px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.box.two h3{
+    background: linear-gradient(-90deg,
+            #edf4fc 75%,
+            #394755 200%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 auto;
+    width: 60%;
 }

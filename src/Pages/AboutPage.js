@@ -9,29 +9,25 @@ const AboutPage = () => {
         <div className="about">
             <Navbar />
 
-            <div className='about-header'>
-                <h1>About</h1>
-            </div>
-
             <div className='section'>
                 <div className='section-header'>
                     <h1>The Beginnings</h1>
                 </div>
 
-                <div className='history-box'>
-                    <h3>The story of the Azure Archive begun many years ago, depending on when you are reading this. If it’s 2023, I’m terribly sorry, I’ve no idea how you got here. Alas, it has begun like many great stories, not in a garage. Seriously, who has a 12x22 feet room just for their car and still calls it a humble start-up?</h3>
+                <div className='box'>
+                    <h3>The story of the Azure Archive begun many years ago, depending on when you are reading this. If it’s still 2023, I’m terribly sorry, I’ve no idea how you got here. Alas, it has begun like many great stories, not in a garage. Seriously, who has a 12x22 feet room just for their car and still calls it a humble start-up?</h3>
                     <h3>
-                        It was an idea born of a dream, that one day <span style={{ textDecoration: 'line-through', textDecorationColor: 'black' }}>I</span> we would store our imagination someplace other than a messy folder brimming with mostly one-page docs. If you thought turtles had a high mortality rate, you should see drafts. Actually, don’t. We only put out high-quality, finished material. Sometimes.
+                        It was an idea born of a dream, that one day <span style={{ textDecoration: 'line-through', textDecorationColor: 'white' }}>I</span> we would store our imagination someplace other than a messy folder brimming with mostly one-page docs. If you thought turtles had a high mortality rate, you should see drafts. Actually, don’t. We only put out high-quality, finished material. Sometimes.
                     </h3>
-                    <h3>We started from the ground. Literally, <span style={{ textDecoration: 'line-through', textDecorationColor: 'black' }}>I was so parsimonious that</span> we couldn’t even afford a developer to build this relatively quick and simple platform. Not to mention the art.</h3>
-                    <h3>And to the ground we shall return. Anything else would mean work. Which can be a bit tricky to sustain at a professional standard, particularly when you aren’t exactly a business. Not that we’d mind getting paid, but that’d entail actually being responsible to our patrons and readers. Which kind of sounds like work, and we can’t have that, can we?</h3>
+                    <h3>We started from the ground. Literally, <span style={{ textDecoration: 'line-through', textDecorationColor: 'white' }}>I was so parsimonious that</span> we couldn’t even afford a developer to build this relatively quick and simple platform. Not to mention the art.</h3>
+                    <h3>And to the ground we shall return. Anything else would mean work. Which can be a bit tricky to sustain at a professional standard, particularly when you aren’t exactly a business. Not that we’d mind getting paid, but that’d entail actually becoming responsible to our patrons and readers. Which kind of sounds like work, and we can’t have that, can we?</h3>
                 </div>
             </div>
 
             <div className='section'>
-                <div className='history-box' id='faq'>
+                <div className='box two' id='faq'>
                     <h2 id='contact'>Can I publish my own articles and stories?</h2>
-                    <h3>Of course, just hit us up at the <span style={{ textDecoration: 'underline', textDecorationColor: 'black' }}>azurearchive@gmail.com</span> and we’ll go from there.</h3>
+                    <h3>Of course, just hit us up at the <span style={{ textDecoration: 'underline', textDecorationColor: 'white' }}>azurearchive@gmail.com</span> and we’ll go from there.</h3>
                     <h2>Is fanfiction allowed?</h2>
                     <h3>As long as you have a written permission from the rightful owners or they’ve
                         publicly stated being okay with fanfiction, I don't see why not.</h3>
@@ -48,16 +44,9 @@ const AboutPage = () => {
                         at the end of each page.</h3>
 
                 </div>
-                <div className='section-header' id='Q&A'>
-                    <h1>Questions & Answers</h1>
+                <div className='section-header two' id='Q&A'>
+                    <h1>Q&A</h1>
                 </div>
-            </div>
-
-            <div className='section-header wide'>
-                <h1>Special Thanks</h1>
-            </div>
-            <div className='history-box wide'>
-                <h1></h1>
             </div>
 
             <Footer />
