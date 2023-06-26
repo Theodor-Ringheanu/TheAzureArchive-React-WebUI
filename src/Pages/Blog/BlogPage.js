@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../Styles/App.css"
-
+import '../../Styles/edit.css';
 import add_story from "../../assets/Images/add_story.jpg";
 import ArticleCover from "../../Components/ArticleCover";
 import Navbar from "../../Components/Navbar.js";

@@ -38,11 +38,24 @@ const StoryLayout = () => {
             } else if (p.startsWith('+') && p.endsWith('+')) {
               const text = p.slice(1, -1);
               paragraphs.push(<h3 key={p} style={{ textAlign: 'center' }}><i>{text}</i></h3>);
+            } else if (p.startsWith('>') && p.endsWith('>')) {
+              const text = p.slice(1, -1);
+              paragraphs.push(
+                <h3 key={p} style={{ textAlign: 'center' }}><strong>{text}</strong></h3>
+              );
+            } else if (p.startsWith('<') && p.endsWith('<')) {
+              const text = p.slice(1, -1);
+              paragraphs.push(
+                <p key={p} style={{ textAlign: 'right' }}><i>{text}</i></p>
+              );
             } else {
               const words = p.split(' ');
               const formattedParagraph = [];
               words.forEach((word, index) => {
-                if (word.startsWith('_') && word.endsWith('_')) {
+                if (word.startsWith('=') && word.endsWith('=')) {
+                  const text = word.slice(1, -1);
+                  formattedParagraph.push(<strong key={index}>{text}</strong>);
+                } else if (word.startsWith('_') && word.endsWith('_')) {
                   const text = word.slice(1, -1);
                   formattedParagraph.push(<i key={index}>{text}</i>);
                 } else {

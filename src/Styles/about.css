@@ -4,11 +4,8 @@
     margin: 0;
     word-wrap: break-word;
     display: block;
-    transition: opacity ease-in 0.3s;
     box-sizing: border-box;
-    background-image: linear-gradient(rgba(54, 71, 86, 0.5),
-            rgb(4, 6, 7)),
-        url(https://universe.leagueoflegends.com/esimages/Universe_Explore_BG_orig__3pIBC.jpg);
+    background-color: black;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

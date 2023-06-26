@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import moment from 'moment';
+import '../../Styles/edit.css';
 
 function EditStory() {
     const storyTitle = useRef("");

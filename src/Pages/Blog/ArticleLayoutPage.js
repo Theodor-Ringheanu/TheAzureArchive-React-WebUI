@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
@@ -27,33 +27,68 @@ const ArticleLayout = () => {
     else return 1;
   };
 
+  const [sections, setSections] = useState([]);
+
   useEffect(() => {
-    window.scrollTo(0, 0);
     axios
       .get(`https://localhost:7080/api/Articles/${id}`)
       .then((response) => {
+        const content = response.data.value.content;
+        const splitContent = content.split('\n\n');
+        const newSections = [];
+        splitContent.forEach((p, index) => {
+          if (p.startsWith('>') && p.endsWith('>')) {
+            const text = p.slice(1, -1);
+            newSections.push({ text, index });
+          }
+        });
+        setSections(newSections);
         setArticle(() => {
           return response.data.value;
         });
         setParagraphs(() => {
-          const content = response.data.value.content;
-          const splitContent = content.split('\n\n');
           const paragraphs = [];
-          splitContent.forEach((p) => {
+          splitContent.forEach((p, index) => {
             if (p.startsWith('*') && p.endsWith('*')) {
               const text = p.slice(1, -1);
-              paragraphs.push(<h3 key={p} style={{ textAlign: 'center', margin: '0 auto' }}>{text}</h3>);
+              paragraphs.push(
+                <h3
+                  key={p}
+                  id={`section-${index}`}
+                  style={{ textAlign: 'center', margin: '0 auto' }}
+                >
+                  {text}
+                </h3>
+              );
             } else if (p.startsWith('_') && p.endsWith('_')) {
               const text = p.slice(1, -1);
               paragraphs.push(<p key={p}><i>{text}</i></p>);
             } else if (p.startsWith('+') && p.endsWith('+')) {
               const text = p.slice(1, -1);
-              paragraphs.push(<h3 key={p} style={{ textAlign: 'center' }}><i>{text}</i></h3>);
+              paragraphs.push(
+                <h3 key={p} style={{ textAlign: 'center' }}><i>{text}</i></h3>
+              );
+            } else if (p.startsWith('=') && p.endsWith('=')) {
+              const text = p.slice(1, -1);
+              paragraphs.push(<p key={p}><strong>{text}</strong></p>);
+            } else if (p.startsWith('>') && p.endsWith('>')) {
+              const text = p.slice(1, -1);
+              paragraphs.push(
+                <h3 key={p} style={{ textAlign: 'center' }}><strong>{text}</strong></h3>
+              );
+            } else if (p.startsWith('<') && p.endsWith('<')) {
+              const text = p.slice(1, -1);
+              paragraphs.push(
+                <p key={p} style={{ textAlign: 'right' }}><i>{text}</i></p>
+              );
             } else {
               const words = p.split(' ');
               const formattedParagraph = [];
               words.forEach((word, index) => {
-                if (word.startsWith('_') && word.endsWith('_')) {
+                if (word.startsWith('=') && word.endsWith('=')) {
+                  const text = word.slice(1, -1);
+                  formattedParagraph.push(<strong key={index}>{text}</strong>);
+                } else if (word.startsWith('_') && word.endsWith('_')) {
                   const text = word.slice(1, -1);
                   formattedParagraph.push(<i key={index}>{text}</i>);
                 } else {
@@ -71,6 +106,13 @@ const ArticleLayout = () => {
         });
       });
   }, [id]);
+
+  const handleClick = (index) => {
+    const sectionElement = document.getElementById(`section-${index}`);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   console.log(article.publicationDate);
 
@@ -134,6 +176,18 @@ const ArticleLayout = () => {
             </button>) : (<h1></h1>)}
         </div>
 
+        <div className={!isLightOn ? 'tldr' : 'tldr tldr-light'}>
+          {sections.map((section, index) => (
+            <p
+              key={index}
+              onClick={() => handleClick(section.index)}
+              style={{ cursor: 'pointer' }}
+            >
+              {section.text}
+            </p>
+          ))}
+        </div>
+
         <div
           className={!isLightOn ? 'content-title content-title-article'
             : 'content-title content-title-article-light'}>
@@ -142,13 +196,12 @@ const ArticleLayout = () => {
           <h2>{publicationDate ? article.publicationDate : publicationDate} · {numWords} words · {Math.floor(numWords / 160)} mins</h2>
         </div>
 
-        <div
-          className={!isLightOn ? 'content content-article'
-            : 'content content-light content-article'}>
+        <div className={!isLightOn ? 'content content-article' : 'content content-light content-article'}>
           {paragraphs.map((paragraph, index) => (
             <React.Fragment key={index}>
-              <p>{paragraph}</p>
+              {paragraph}
               {index !== paragraphs.length - 1 && <br />}
+              <span id={`section-${index + 1}`}></span>
             </React.Fragment>
           ))}
         </div>
