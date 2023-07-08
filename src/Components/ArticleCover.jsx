@@ -2,8 +2,8 @@ import React from 'react';
 
 const ArticleCover = ({ article }) => {
     return (
-        <div className='story-box'>
-            <div className="cover">
+        <div className='article-box'>
+            <div className="article">
                 <div style={{ zIndex: 3 }}>
                     <span>{article.publicationDate}</span>
                 </div>

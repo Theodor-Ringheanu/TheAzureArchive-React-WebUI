@@ -29,7 +29,7 @@ const StoryLayout = () => {
           const splitContent = content.split('\n\n');
           const paragraphs = [];
           splitContent.forEach((p) => {
-            if (p.startsWith('*') && p.endsWith('*')) {
+            if (p.startsWith('=') && p.endsWith('=')) {
               const text = p.slice(1, -1);
               paragraphs.push(<h3 key={p} style={{ textAlign: 'center', margin: '0 auto' }}>{text}</h3>);
             } else if (p.startsWith('_') && p.endsWith('_')) {
@@ -52,7 +52,7 @@ const StoryLayout = () => {
               const words = p.split(' ');
               const formattedParagraph = [];
               words.forEach((word, index) => {
-                if (word.startsWith('=') && word.endsWith('=')) {
+                if (word.startsWith('*') && word.endsWith('*')) {
                   const text = word.slice(1, -1);
                   formattedParagraph.push(<strong key={index}>{text}</strong>);
                 } else if (word.startsWith('_') && word.endsWith('_')) {

@@ -2,46 +2,32 @@
 
 .home-body {
   font-family: 'Marcellus SC', serif;
-  padding-top: 0;
   color: #e4e2de;
   line-height: 1.3;
   word-wrap: break-word;
   display: block;
   margin: 0;
-  transition: opacity ease-in 0.3s;
+  transition: opacity ease-in .4s;
   box-sizing: border-box;
   background: radial-gradient(circle,
       #394755 0%,
       rgba(0, 2, 4, 1) 100%);
+  overflow: hidden;
 }
 
 .bg-header {
-  overflow: hidden;
-  padding-top: 0px;
-  opacity: 1;
-  align-items: center;
-  box-sizing: border-box;
-  justify-content: center;
-  height: 100vh;
-  display: flex;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   margin-left: auto;
   margin-right: auto;
-  background-size: cover;
-  z-index: 1;
-}
-
-.bg-header video {
-  left: 0;
-  overflow: hidden;
-  right: 0;
-  top: 25%;
-  position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transform: scale(1.8);
-  clip-path: inset(0 22% 35% 0%);
+  justify-content: center;
+  display: flex;
+  background-size: cover;
+  background-image: url(../assets/Images/blog_background.jpg);
 }
 
 .scroll-down {
@@ -103,6 +89,7 @@
 }
 
 .hp-container {
+  padding-top: 100vh;
   position: relative;
   color: #fff;
   font-weight: 300;
@@ -184,22 +171,6 @@
   display: block;
 }
 
-@media (max-width: 500px) {
-  .swiper_container {
-    height: 47rem;
-  }
-
-  .swiper-slide {
-    width: 28rem !important;
-    height: 36rem !important;
-  }
-
-  .swiper-slide img {
-    width: 28rem !important;
-    height: 36rem !important;
-  }
-}
-
 .swiper-slide img {
   width: 37rem;
   height: 42rem;
@@ -209,4 +180,35 @@
 .swiper-slide-shadow-left,
 .swiper-slide-shadow-right {
   display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .scroll-down {
+    display: none;
+  }
+
+  .hp-container {
+    height: 100%;
+  }
+
+  .hp-container-box-heading {
+    padding-bottom: 5vh;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+  }
+
+  .hp-container-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .hp-container-box-formbox {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .input-button {
+    margin-top: 5%;
+  }
 }

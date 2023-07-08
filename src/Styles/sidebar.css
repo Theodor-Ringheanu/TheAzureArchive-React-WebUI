@@ -1,0 +1,134 @@
+.sidebar {
+    font-family: 'Marcellus SC', serif;
+    background: transparent;
+    display: grid;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 20vh;
+    z-index: 3;
+    transition: .4s ease-in-out;
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .sidebar.active {
+    background: radial-gradient(circle,
+        #394755 0%,
+        rgba(0, 2, 4, 1) 100%);
+    background-position: right;
+    background-size: cover;
+    top: 0;
+    z-index: 3;
+    font-size: 20px;
+    transition: 0.3s ease-out;
+    border-right: solid #394755;
+    border-right-width: 1px;
+    border-left-width: 0px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .5);
+  }
+  
+  .logo-box {
+    padding-left: 5%;
+    display: block;
+    width: 25%;
+  }
+  
+  .logo-logo {
+    width: 100px;
+    height: auto;
+    padding-left: 50%;
+    content: url('../assets/Images/aa_logo.png');
+  }
+  
+  .sidebar a {
+    text-decoration-style: solid;
+    text-size-adjust: 100%;
+    letter-spacing: 2px;
+    margin: 0 10%;
+    color: white;
+    font-weight: 500;
+    padding: 8px;
+  }
+  
+  .sidebar a:hover {
+    background-color: rgba(240, 230, 210, 0.2);
+    background-size: cover;
+  }
+  
+  .sidebar .nav-btn {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f0e6d2;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.8rem;
+  }
+  
+  .sidebar .hideNav-btn {
+    border: transparent;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    background: transparent;
+    padding-right: 50%;
+    padding-top: 20%;
+  }
+
+  .sidebar .hideNav-btn {
+    opacity: 0;
+  }
+  
+  .sidebar .showNav-btn {
+    opacity: 0;
+  }
+  
+  .sidebar .showNav-btn {
+    border: transparent;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  
+  @media only screen and (max-width: 1024px) {
+    .sidebar .nav-btn {
+      visibility: visible;
+      opacity: 1;
+    }
+  
+    .sidebar nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      background-color: #111214;
+      transition: 1s;
+      transform: translateY(-100vh);
+    }
+  
+    .sidebar .responsive_nav {
+      transform: none;
+    }
+  
+    .sidebar .nav-close-btn {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+    }
+  
+    .sidebar a {
+      font-size: 1.5rem;
+    }
+  }

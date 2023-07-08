@@ -17,16 +17,6 @@ const ArticleLayout = () => {
   };
   const [numWords, setNumWords] = useState(0);
 
-  const blur = () => {
-    if (scrollPosition / 50 > 0 && scrollPosition / 50 < 10) {
-      return scrollPosition / 10;
-    }
-    if (scrollPosition / 50 >= 10) {
-      return 50;
-    }
-    else return 1;
-  };
-
   const [sections, setSections] = useState([]);
 
   useEffect(() => {
@@ -49,7 +39,7 @@ const ArticleLayout = () => {
         setParagraphs(() => {
           const paragraphs = [];
           splitContent.forEach((p, index) => {
-            if (p.startsWith('*') && p.endsWith('*')) {
+            if (p.startsWith('=') && p.endsWith('=')) {
               const text = p.slice(1, -1);
               paragraphs.push(
                 <h3
@@ -68,7 +58,7 @@ const ArticleLayout = () => {
               paragraphs.push(
                 <h3 key={p} style={{ textAlign: 'center' }}><i>{text}</i></h3>
               );
-            } else if (p.startsWith('=') && p.endsWith('=')) {
+            } else if (p.startsWith('*') && p.endsWith('*')) {
               const text = p.slice(1, -1);
               paragraphs.push(<p key={p}><strong>{text}</strong></p>);
             } else if (p.startsWith('>') && p.endsWith('>')) {
@@ -85,7 +75,7 @@ const ArticleLayout = () => {
               const words = p.split(' ');
               const formattedParagraph = [];
               words.forEach((word, index) => {
-                if (word.startsWith('=') && word.endsWith('=')) {
+                if (word.startsWith('*') && word.endsWith('*')) {
                   const text = word.slice(1, -1);
                   formattedParagraph.push(<strong key={index}>{text}</strong>);
                 } else if (word.startsWith('_') && word.endsWith('_')) {
@@ -171,12 +161,12 @@ const ArticleLayout = () => {
 
         <div>
           {scrollPosition >= 1 ? (
-            <button className={!isLightOn ? 'lightSwitch-off' : 'lightSwitch-on'}
+            <button className={isLightOn ? 'lightSwitch-off' : 'lightSwitch-on'}
               onClick={handleLightSwitch}>
             </button>) : (<h1></h1>)}
         </div>
 
-        <div className={!isLightOn ? 'tldr' : 'tldr tldr-light'}>
+        <div className={isLightOn ? 'tldr' : 'tldr tldr-light'}>
           {sections.map((section, index) => (
             <p
               key={index}
@@ -189,14 +179,14 @@ const ArticleLayout = () => {
         </div>
 
         <div
-          className={!isLightOn ? 'content-title content-title-article'
+          className={isLightOn ? 'content-title content-title-article-dark'
             : 'content-title content-title-article-light'}>
           <h2>{article.author}</h2>
           <h1>{article.title}</h1>
-          <h2>{publicationDate ? article.publicationDate : publicationDate} · {numWords} words · {Math.floor(numWords / 160)} mins</h2>
+          <h2>{publicationDate ? article.publicationDate : publicationDate} · {numWords} words · {Math.floor(numWords / 160)} mins read</h2>
         </div>
 
-        <div className={!isLightOn ? 'content content-article' : 'content content-light content-article'}>
+        <div className={isLightOn ? 'content content-article-dark' : 'content content-light content-article-light'}>
           {paragraphs.map((paragraph, index) => (
             <React.Fragment key={index}>
               {paragraph}
@@ -211,12 +201,11 @@ const ArticleLayout = () => {
             className="blur-overlay"
             style={{
               backgroundImage: `url(${article.imageUrl})`,
-              filter: `blur(${blur()}px)`,
             }}
           ></div>
           <div
             className={
-              !isLightOn
+              isLightOn
                 ? "article-gradient-overlay"
                 : "article-gradient-overlay article-gradient-overlay-light"
             }

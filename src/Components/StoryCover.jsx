@@ -4,14 +4,14 @@ const StoryCover = ({ story }) => {
     return (
         <div className='story-box'>
             <div className="story">
-                <div style={{zIndex: 3}}>
+                <div>
                     <span>{story.series}</span>
                 </div>
 
                 <div>
                     <img className='cover-image'
                         src={story.imageUrl}
-                        alt='story cover'>
+                        alt='story cover image'>
                     </img>
                 </div>
 

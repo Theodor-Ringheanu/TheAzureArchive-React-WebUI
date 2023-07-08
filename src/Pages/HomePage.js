@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../Styles/home.css';
 import { format } from 'date-fns'
-import { Link, useNavigate } from "react-router-dom";
-
-import frontpage_vid from '../assets/videos/frontpage_vid.mp4';
+import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar.js";
 import Footer from "../Components/Footer.js";
-
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import { Swiper, SwiperSlide, } from 'swiper/react';
 import { EffectCoverflow } from 'swiper';
-
 import ArticleCover from '../Components/ArticleCover';
 import StoryCover from '../Components/StoryCover';
 import axios from 'axios';
@@ -98,16 +94,26 @@ const HomePage = () => {
       });
   }
 
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className='home-body'>
 
       <Navbar />
 
-      <div className="bg-header" id="video-background">
+      <div className="bg-header">
         <div className="scroll-down" />
-        <video autoPlay muted loop playsInline>
-          <source src={frontpage_vid} />
-        </video>
       </div>
 
       <div className="hp-container">
@@ -117,7 +123,7 @@ const HomePage = () => {
               SIGN UP FOR MONTHLY UPDATES
             </h2>
           </div>
-          <div id='formbox' className='hp-container-box-formbox'>
+          <div className='hp-container-box-formbox' id='formbox'>
             <form id='form' action='' method='POST' acceptCharset='utf-8'
               target='_blank' onSubmit={submitEmail}>
               <input ref={emailRef} className='input' type='email' name='email'
@@ -138,56 +144,59 @@ const HomePage = () => {
           </div>
         </div>
 
-        <Swiper
-          effect={'coverflow'}
-          grabCursor={true}
-          centeredSlides={true}
-          loop={true}
-          slidesPerView={'5'}
-          coverflowEffect={{
-            rotate: -2,
-            stretch: 15,
-            depth: 100,
-            modifier: 1,
-          }}
-
-          modules={[EffectCoverflow]}
-          className="swiper-container"
-        >
-          <SwiperSlide>
-            {renderSwiperSlides(0, 1)}
-          </SwiperSlide>
-          <SwiperSlide>
-            {renderSwiperSlides(1, 2)}
-          </SwiperSlide>
-          <SwiperSlide>
-            {renderSwiperSlides(2, 3)}
-          </SwiperSlide>
-          <SwiperSlide>
-            {renderSwiperSlides(3, 4)}
-          </SwiperSlide>
-          <SwiperSlide>
-            {renderSwiperSlides(4, 5)}
-          </SwiperSlide>
-          <SwiperSlide>
-            {renderSwiperSlides(6, 7)}
-          </SwiperSlide>
-          <SwiperSlide>
-            {renderSwiperSlides(7, 8)}
-          </SwiperSlide>
-          <SwiperSlide>
-            {renderSwiperSlides(8, 9)}
-          </SwiperSlide>
-          <SwiperSlide>
-            {renderSwiperSlides(9, 10)}
-          </SwiperSlide>
-          <SwiperSlide>
-            {renderSwiperSlides(10, 11)}
-          </SwiperSlide>
-          <SwiperSlide>
-            {renderSwiperSlides(11, 12)}
-          </SwiperSlide>
-        </Swiper>
+        {screenWidth >= 1024 && (
+          <div>
+            <Swiper
+              effect={'coverflow'}
+              grabCursor={true}
+              centeredSlides={true}
+              loop={true}
+              slidesPerView={'5'}
+              coverflowEffect={{
+                rotate: -2,
+                stretch: 15,
+                depth: 100,
+                modifier: 1,
+              }}
+              modules={[EffectCoverflow]}
+              className="swiper-container"
+            >
+              <SwiperSlide>
+                {renderSwiperSlides(0, 1)}
+              </SwiperSlide>
+              <SwiperSlide>
+                {renderSwiperSlides(1, 2)}
+              </SwiperSlide>
+              <SwiperSlide>
+                {renderSwiperSlides(2, 3)}
+              </SwiperSlide>
+              <SwiperSlide>
+                {renderSwiperSlides(3, 4)}
+              </SwiperSlide>
+              <SwiperSlide>
+                {renderSwiperSlides(4, 5)}
+              </SwiperSlide>
+              <SwiperSlide>
+                {renderSwiperSlides(6, 7)}
+              </SwiperSlide>
+              <SwiperSlide>
+                {renderSwiperSlides(7, 8)}
+              </SwiperSlide>
+              <SwiperSlide>
+                {renderSwiperSlides(8, 9)}
+              </SwiperSlide>
+              <SwiperSlide>
+                {renderSwiperSlides(9, 10)}
+              </SwiperSlide>
+              <SwiperSlide>
+                {renderSwiperSlides(10, 11)}
+              </SwiperSlide>
+              <SwiperSlide>
+                {renderSwiperSlides(11, 12)}
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        )}
       </div>
 
       <Footer />

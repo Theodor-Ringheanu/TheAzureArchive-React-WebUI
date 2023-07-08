@@ -78,3 +78,16 @@
 .copyright h2, .copyright h3{
     text-align: left;
 }
+
+@media only screen and (max-width: 500px) {
+    .header h1 {
+        font-size: 1.7rem;
+        text-align: center;
+        padding-top: 25vh;
+        color: #f0e6d2;
+        text-shadow: 0 1px 30px 0 rgba(0, 0, 0, .5);
+    }
+    .text h3 {
+        width: 90%;
+    }
+}

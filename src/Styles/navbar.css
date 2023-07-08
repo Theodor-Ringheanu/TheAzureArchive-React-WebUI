@@ -18,6 +18,7 @@
 
 .navbar.active {
   height: 5%;
+  min-height: 38px;
   background:
     radial-gradient(circle, #394755 0%,
       #000204 100%);
@@ -27,14 +28,16 @@
   top: 0;
   z-index: 300;
   font-size: 20px;
-  box-shadow: 0 5px 15px 0 rgba(0,0,0,.5);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5);
 }
 
 .logo-box {
-  outline: none;
   padding-left: 5%;
   display: block;
   width: 28%;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .logo-text-logo {
@@ -79,7 +82,6 @@
 }
 
 .navbar .nav-btn {
-  padding: 5px;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -91,15 +93,26 @@
 }
 
 @media only screen and (max-width: 1024px) {
+  .navbar.active {
+    height: 10%;
+    width: 100%;
+  }
+
   .navbar .nav-btn {
     visibility: visible;
     opacity: 1;
+    margin-left: 50%;
+    padding-top: 1%;
+  }
+
+  .navbar {
+    width: 100%;
   }
 
   .navbar nav {
     position: fixed;
     top: 0;
-    left: 0;
+    margin-left: 0;
     height: 100%;
     width: 100%;
     display: flex;
@@ -107,9 +120,18 @@
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    background-color: #111214;
-    transition: 1s;
+    transition: 0.5s;
     transform: translateY(-100vh);
+    background-color: #000204;
+    background-image: url(../assets/Images/puddle-frame.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+  }
+
+  .navbar nav a:hover {
+    border-radius: 6px;
+    background-color: rgba(240, 230, 210, 0.2);
   }
 
   .navbar .responsive_nav {
@@ -122,144 +144,23 @@
     right: 2rem;
   }
 
-  .navbar a {
+  .navbarY a {
     font-size: 1.5rem;
   }
 }
 
-
-/*//////////////////////////////XXXXXXXX/////////*/
-
-.navbarX {
-  font-family: 'Marcellus SC', serif;
-  background: transparent;
-  display: grid;
-  position: fixed;
-  align-items: center;
-  justify-content: stretch;
-  height: 100%;
-  width: 11%;
-  z-index: 3;
-  transition: .2s ease-in-out;
-  margin: 0;
-  font-size: 20px;
-}
-
-.navbarX.active {
-  background: radial-gradient(circle,
-      #394755 0%,
-      rgba(0, 2, 4, 1) 100%);
-  background-position: right;
-  background-size: cover;
-  top: 0;
-  z-index: 3;
-  font-size: 20px;
-  transition: 0.3s ease-out;
-  border-right: solid #394755;
-  border-right-width: 1px;
-  border-left-width: 0px;
-  box-shadow: 0 5px 5px 0 rgba(0,0,0,.5);
-}
-
-.logoX-box {
-  padding-left: 5%;
-  display: block;
-  width: 25%;
-}
-
-.logoX-logo {
-  width: 100px;
-  height: auto;
-  padding-left: 50%;
-  content: url('../assets/Images/aa_logo.png');
-}
-
-.navbarX a {
-  text-decoration-style: solid;
-  text-size-adjust: 100%;
-  letter-spacing: 2px;
-  margin: 0 10%;
-  color: white;
-  font-weight: 500;
-  padding: 8px;
-}
-
-.navbarX a:hover {
-  background-color: rgba(240, 230, 210, 0.2);
-  background-size: cover;
-}
-
-.navbarX .nav-btn {
-  padding: 5px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #f0e6d2;
-  visibility: hidden;
-  opacity: 0;
-  font-size: 1.8rem;
-}
-
-.navbarX .hideNav-btn {
-  border: transparent;
-  font-size: 22px;
-  color: #fff;
-  cursor: pointer;
-  background: transparent;
-  padding-right: 50%;
-  padding-top: 20%;
-}
-
-.navbarX .showNav-btn {
-  opacity: 0;
-}
-
-.navbar .showNav-btn {
-  border: transparent;
-  font-size: 22px;
-  color: #fff;
-  cursor: pointer;
-  background: transparent;
-}
-
-.navbar .hideNav-btn {
-  opacity: 0;
-}
-
-@media only screen and (max-width: 1024px) {
-  .navbarX .nav-btn {
-    visibility: visible;
-    opacity: 1;
+@media only screen and (max-width: 500px) {
+  .navbar.active {
+    height: 12.5%;
   }
 
-  .navbarX nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    background-color: #111214;
-    transition: 1s;
-    transform: translateY(-100vh);
-  }
-
-  .navbarX .responsive_nav {
+  .logo-text-logo,
+  .logo-text-logo:hover,
+  .logo-text-logo.active,
+  .logo-text-logo.active:hover {
     transform: none;
-  }
-
-  .navbarX .nav-close-btn {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-  }
-
-  .navbarX a {
-    font-size: 1.5rem;
+    width: 300%;
+    padding-top: 0;
+    content: url('../assets/Images/aa_logo_text_hover.png');
   }
 }

@@ -21,7 +21,7 @@ export default function App() {
     <div>
       <Routes>
         <Route path='/home' element={<HomePage />} />
-        <Route path='/posts' element={<BlogPage />} />
+        <Route path='/articles' element={<BlogPage />} />
         <Route path='/short-stories' element={<ShortStoriesPage />} />
         <Route path='/privacy' element={<PrivacyPage />} />
         <Route path='/about' element={<AboutPage />} />

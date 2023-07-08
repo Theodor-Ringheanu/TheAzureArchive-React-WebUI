@@ -4,6 +4,7 @@ import "../../Styles/covers.css";
 import add_story from "../../assets/Images/add_story.jpg";
 import StoryCover from "../../Components/StoryCover";
 import Navbar from "../../Components/Navbar.js";
+import Sidebar from "../../Components/Sidebar.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -38,11 +39,19 @@ const ShortStoriesPage = () => {
     };
   }, []);
 
+  const [sidebar, setSidebar] = useState(false)
+
+  const scrollEvent = () => {
+    if (window.scrollX >= 1) {
+      setSidebar(true);
+    }
+  }
+
+  window.addEventListener('scroll', scrollEvent);
 
   return (
     <div>
-      <div className="page-background-story">
-        <img />
+      <div className="story-page-background ">
       </div>
 
       <div className="story-intro">
@@ -84,9 +93,8 @@ const ShortStoriesPage = () => {
         }
       </div >
 
-      <React.Fragment>
-        <Navbar />
-      </React.Fragment>
+      {!sidebar ? <Navbar /> : <Sidebar />}
+
     </div>
   );
 };

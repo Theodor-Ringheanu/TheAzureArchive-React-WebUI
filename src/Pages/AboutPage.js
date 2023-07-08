@@ -8,6 +8,7 @@ const AboutPage = () => {
     return (
         <div className="about">
             <Navbar />
+            <div className='void'/>
 
             <div className='section'>
                 <div className='section-header'>

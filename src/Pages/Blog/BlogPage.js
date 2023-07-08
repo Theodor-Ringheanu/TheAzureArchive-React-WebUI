@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../Styles/App.css"
 import '../../Styles/edit.css';
+import '../../Styles/covers.css';
 import add_story from "../../assets/Images/add_story.jpg";
 import ArticleCover from "../../Components/ArticleCover";
 import Navbar from "../../Components/Navbar.js";
@@ -38,7 +39,7 @@ const BlogPage = () => {
 
       {
         articles?.length > 0 ? (
-          <div className="cover-container">
+          <div className="article-container">
             {articles
               .sort((a, b) => new Date(b.publicationDate) - new Date(a.publicationDate))
               .map((article) => (
