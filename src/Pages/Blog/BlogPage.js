@@ -33,7 +33,7 @@ const BlogPage = () => {
       <div className="blog-page-background">
         <img />
       </div>
-      <div className="page-title">
+      <div className="blog-page-title">
         <h1>Articles</h1>
       </div>
 

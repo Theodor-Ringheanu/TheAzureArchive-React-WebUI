@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
-import '../../Styles/App.css';
+import '../../Styles/article.css';
 import Footer from "../../Components/Footer.js";
 import Navbar from "../../Components/Navbar.js";
 
@@ -145,6 +145,19 @@ const ArticleLayout = () => {
     setIsLightOn(!isLightOn);
   };
 
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <Col key={article.id}>
       <div>
@@ -153,20 +166,13 @@ const ArticleLayout = () => {
           <Navbar />
         </React.Fragment>
 
-        <div className='app'>
+        {/* <div className='app'>
           <a href={`/article/EditArticle/${encodeURIComponent(article.id)}`} key={article.id}>
             <h1>(edit)</h1>
           </a>
-        </div>
-
-        <div>
-          {scrollPosition >= 1 ? (
-            <button className={isLightOn ? 'lightSwitch-off' : 'lightSwitch-on'}
-              onClick={handleLightSwitch}>
-            </button>) : (<h1></h1>)}
-        </div>
-
-        <div className={isLightOn ? 'tldr' : 'tldr tldr-light'}>
+        </div> */}
+        <div className={isLightOn ?
+          'tldr' : 'tldr tldr-light'}>
           {sections.map((section, index) => (
             <p
               key={index}
@@ -179,14 +185,28 @@ const ArticleLayout = () => {
         </div>
 
         <div
-          className={isLightOn ? 'content-title content-title-article-dark'
-            : 'content-title content-title-article-light'}>
+          className={isLightOn ?
+            'article-title article-title-dark'
+            : 'article-title article-title-light'}>
           <h2>{article.author}</h2>
           <h1>{article.title}</h1>
           <h2>{publicationDate ? article.publicationDate : publicationDate} · {numWords} words · {Math.floor(numWords / 160)} mins read</h2>
+          <div>
+            {scrollPosition >= 1 && screenWidth > 500 ? (
+              <button className={isLightOn ? 'article-lightSwitch-off' : 'article-lightSwitch-on'}
+                onClick={handleLightSwitch}></button>
+            ) : screenWidth <= 500 ? (
+              <button className={isLightOn ? 'article-lightSwitch-off' : 'article-lightSwitch-on'}
+                onClick={handleLightSwitch}></button>
+            ) : (
+              <div />
+            )}
+          </div>
         </div>
 
-        <div className={isLightOn ? 'content content-article-dark' : 'content content-light content-article-light'}>
+        <div className={isLightOn ?
+          'article-text article-text-dark' 
+          : 'article-text article-text-light'}>
           {paragraphs.map((paragraph, index) => (
             <React.Fragment key={index}>
               {paragraph}
@@ -196,7 +216,7 @@ const ArticleLayout = () => {
           ))}
         </div>
 
-        <div className="content-background content-background-article">
+        <div className="article-background">
           <div
             className="blur-overlay"
             style={{
@@ -206,8 +226,8 @@ const ArticleLayout = () => {
           <div
             className={
               isLightOn
-                ? "article-gradient-overlay"
-                : "article-gradient-overlay article-gradient-overlay-light"
+                ? "gradient-overlay gradient-overlay-dark"
+                : "gradient-overlay gradient-overlay-light"
             }
           ></div>
         </div>

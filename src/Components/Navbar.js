@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { FaBars, FaTimes } from 'react-icons/fa';
 import '../Styles/navbar.css';
 
@@ -20,18 +20,6 @@ export default function Navbar() {
 
     window.addEventListener('scroll', scrollDown);
 
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-    useEffect(() => {
-        const handleResize = () => {
-            setScreenWidth(window.innerWidth);
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
 
     return (
         <div>

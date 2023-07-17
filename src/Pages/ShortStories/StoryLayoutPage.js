@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
-import '../../Styles/App.css';
+import '../../Styles/story.css';
 import Navbar from "../../Components/Navbar.js";
 import Footer from "../../Components/Footer.js";
 
@@ -99,17 +99,17 @@ const StoryLayout = () => {
 
       <div>
 
-        <div className='app'>
+        {/* <div className='app'>
           <Link to={`/story/EditStory/${encodeURIComponent(story.id)}`} key={story.id}>
             <h3>edit</h3>
           </Link>
-        </div>
+        </div> */}
 
         <div
-          className='content-title'
+          className='story-title'
           style={{ opacity: opacity, }}>
-          <h1 className='content-title-story'>{story.title}</h1>
-          <h2 className='content-title-story-author'>{story.author}</h2>
+          <h1>{story.title}</h1>
+          <h2 className='story-author'>{story.author}</h2>
         </div>
 
         <p
@@ -120,13 +120,15 @@ const StoryLayout = () => {
 
         <div>
           {scrollPosition >= 1 ? (
-            <button className={!isLightOn ? 'lightSwitch-off' : 'lightSwitch-on'}
+            <button className={!isLightOn ? 
+              'story-lightSwitch-off' : 'story-lightSwitch-on'}
               onClick={handleLightSwitch}>
             </button>) : (<h1></h1>)}
         </div>
 
 
-        <div className={!isLightOn ? 'content' : 'content content-light'}>
+        <div className={!isLightOn ? 
+          'story-text' : 'story-text story-text-light'}>
           {paragraphs.map((paragraph, index) => (
             <React.Fragment key={index}>
               {paragraph}
@@ -136,7 +138,7 @@ const StoryLayout = () => {
         </div>
 
         <div
-          className='content-background'
+          className='story-background'
           style={{
             backgroundImage: `url(${story.imageUrl})`,
             opacity: opacity,
