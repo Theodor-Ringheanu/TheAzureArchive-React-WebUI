@@ -230,33 +230,41 @@
 
 
 @media screen and (max-width: 500px) {
-    .page-title {
-        font-family: 'Marcellus SC', serif;
-        font-size: 1.7rem;
-        padding-top: 25vh;
-        padding-bottom: 3%;
+    .article-title-light {
+        padding-top: 25%;
+        margin-right: 20%;
+        padding-left: 12%;
+        font-size: 0.7rem;
+    }
+
+    .article-title-light h1 {
+        font-size: 1.1rem;
+    }
+
+    .article-title-light h2 {
+        font-size: 0.7rem;
+    }
+
+    .article-title-dark {
+        padding-top: 25%;
+        margin-right: 20%;
+        padding-left: 12%;
+        font-size: 0.7rem;
+    }
+
+    .article-title-dark h1 {
+        font-size: 1.1rem;
+    }
+
+    .article-title-dark h2 {
+        font-size: 0.7rem;
     }
 
     .tldr {
         display: none;
     }
 
-    .title-light {
-        padding-top: 25%;
-        margin-right: 20%;
-        padding-left: 12%;
-        font-size: 0.7rem;
-    }
-
-    .title-light h1 {
-        font-size: 1.1rem;
-    }
-
-    .title-light h2 {
-        font-size: 0.7rem;
-    }
-
-    .article-light {
+    .article-text-light {
         margin-left: 0%;
         width: 100%;
         line-height: 30px;
@@ -264,26 +272,11 @@
         overflow: hidden;
     }
 
-    .content-light h3 {
+    .article-text-light h3 {
         font-size: 14px;
     }
 
-    .title-dark {
-        padding-top: 25%;
-        margin-right: 20%;
-        padding-left: 12%;
-        font-size: 0.7rem;
-    }
-
-    .title-dark h1 {
-        font-size: 1.1rem;
-    }
-
-    .title-dark h2 {
-        font-size: 0.7rem;
-    }
-
-    .content-dark {
+    .article-text-dark {
         margin-left: 0%;
         width: 100%;
         line-height: 30px;
@@ -291,11 +284,11 @@
         overflow: hidden;
     }
 
-    .content-dark h3 {
+    .article-text-dark h3 {
         font-size: 14px;
     }
 
-    .lightSwitch-off {
+    .article-lightSwitch-off {
         height: 40px;
         width: 40px;
         position: absolute;
@@ -304,7 +297,7 @@
         transition: .4s ease-in-out;
     }
 
-    .lightSwitch-on {
+    .article-lightSwitch-on {
         height: 40px;
         width: 40px;
         position: absolute;

@@ -46,12 +46,11 @@
 }
 
 .text {
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding: 5%;
 }
 
 .text h2 {
-    padding-top: 2%;
+    padding-top: 4vh;
     background: linear-gradient(90deg,
             rgb(225, 185, 152) 75%,
             rgba(0, 2, 4, 1) 100%);

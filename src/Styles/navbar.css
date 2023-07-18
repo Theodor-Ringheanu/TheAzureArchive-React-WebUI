@@ -122,11 +122,9 @@
     gap: 1.5rem;
     transition: 0.5s;
     transform: translateY(-100vh);
-    background-color: #000204;
-    background-image: url(../assets/Images/puddle-frame.png);
-    background-repeat: no-repeat;
-    background-size: 80%;
-    background-position: center;
+    background: radial-gradient(circle,
+        #394755 0%,
+        rgba(0, 2, 4, 1) 100%);
   }
 
   .navbar nav a:hover {

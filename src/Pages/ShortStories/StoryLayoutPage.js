@@ -93,9 +93,7 @@ const StoryLayout = () => {
   return (
     <Col key={story.id}>
 
-      <React.Fragment>
-        <Navbar />
-      </React.Fragment>
+      <Navbar />
 
       <div>
 
@@ -120,14 +118,13 @@ const StoryLayout = () => {
 
         <div>
           {scrollPosition >= 1 ? (
-            <button className={!isLightOn ? 
+            <button className={!isLightOn ?
               'story-lightSwitch-off' : 'story-lightSwitch-on'}
               onClick={handleLightSwitch}>
             </button>) : (<h1></h1>)}
         </div>
 
-
-        <div className={!isLightOn ? 
+        <div className={!isLightOn ?
           'story-text' : 'story-text story-text-light'}>
           {paragraphs.map((paragraph, index) => (
             <React.Fragment key={index}>

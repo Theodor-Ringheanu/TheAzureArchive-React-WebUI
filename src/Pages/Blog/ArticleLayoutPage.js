@@ -161,16 +161,15 @@ const ArticleLayout = () => {
   return (
     <Col key={article.id}>
       <div>
-
-        <React.Fragment>
+        
           <Navbar />
-        </React.Fragment>
 
         {/* <div className='app'>
           <a href={`/article/EditArticle/${encodeURIComponent(article.id)}`} key={article.id}>
             <h1>(edit)</h1>
           </a>
         </div> */}
+
         <div className={isLightOn ?
           'tldr' : 'tldr tldr-light'}>
           {sections.map((section, index) => (

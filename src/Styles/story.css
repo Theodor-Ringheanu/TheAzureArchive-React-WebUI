@@ -2,10 +2,8 @@
     font-family: 'Robot Slab', sans-serif;
     transition: 0.3s ease-in-out;
     position: relative;
-    padding-top: 20%;
+    padding-top: 50vh;
     padding-bottom: 10%;
-    left: 0;
-    right: 0;
     text-align: center;
     font-size: 2rem;
     text-transform: uppercase;
@@ -38,6 +36,7 @@
 }
 
 .story-text {
+    overflow: hidden;
     font-family: 'Roboto Slab', sans-serif;
     letter-spacing: .010em;
     color: #f0e6d2;
@@ -60,7 +59,7 @@
     font-size: 18px;
 }
 
-.story-text-light {
+.story-text-light p{
     color: #000000;
 }
 
@@ -117,4 +116,75 @@
             rgba(0, 0, 0, 0.4) 60%,
             rgba(3, 10, 18, 1) 100%);
     opacity: 1;
+}
+
+@media screen and (max-width: 500px) {
+    .story-title{
+        padding-top: 50vh;
+    }
+    .story-title h1{
+        font-size: 12vw;
+    }
+    .story-title h2{
+        padding-top: 2vh;
+        font-size: 6vw;
+    }
+    .story-text {
+        overflow: hidden;
+        font-family: 'Roboto Slab', sans-serif;
+        letter-spacing: .010em;
+        color: #f0e6d2;
+        font-size: 1em;
+        font-stretch: 100%;
+        text-align: left;
+        width: 80vw;
+        margin-top: 50vh;
+        margin-bottom: 100px;
+        line-height: 28px;
+        z-index: 1;
+        transition: .5s;
+        text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    .story-text h3 {
+        text-align: center;
+        font-weight: normal;
+        font-size: 1.2em;
+    }
+
+    .scroller{
+        font-size: 4vw;
+    }
+
+    .story-lightSwitch-off {
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        bottom: -20px;
+        margin-left: 46%;
+        transition: .4s ease-in-out;
+    }
+
+    .story-lightSwitch-on {
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        bottom: -20px;
+        margin-left: 46%;
+        transition: .4s ease-in-out;
+    }
+
+    .story-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1;
+        overflow: hidden;
+        transition: 0.3s ease-in-out;
+    }
 }

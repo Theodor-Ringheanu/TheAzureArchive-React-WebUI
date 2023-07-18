@@ -7,6 +7,7 @@ import Navbar from "../../Components/Navbar.js";
 import Sidebar from "../../Components/Sidebar.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Footer from "../../Components/Footer";
 
 const ShortStoriesPage = () => {
   const [stories, setStories] = useState([]);
@@ -22,22 +23,41 @@ const ShortStoriesPage = () => {
       });
   }, []);
 
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   useEffect(() => {
-    document.body.style.overflowY = 'hidden';
-    document.body.style.overflowX = 'scroll';
-    const handleWheel = (e) => {
-      if (e.deltaX !== 0 || e.deltaY !== 0) {
-        e.preventDefault();
-        window.scrollBy(e.deltaY, e.deltaX);
-      }
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
     };
-    document.addEventListener("wheel", handleWheel, { passive: false });
+
+    window.addEventListener('resize', handleResize);
+
     return () => {
-      document.body.style.overflowY = 'auto';
-      document.body.style.overflowX = 'auto';
-      document.removeEventListener("wheel", handleWheel);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    if (screenWidth >= 1024) {
+      document.body.style.overflowY = 'hidden';
+      document.body.style.overflowX = 'scroll';
+      const handleWheel = (e) => {
+        if (e.deltaX !== 0 || e.deltaY !== 0) {
+          e.preventDefault();
+          window.scrollBy(e.deltaY, e.deltaX);
+        }
+      };
+      document.addEventListener("wheel", handleWheel, { passive: false });
+      return () => {
+        document.body.style.overflowY = 'auto';
+        document.body.style.overflowX = 'auto';
+        document.removeEventListener("wheel", handleWheel);
+      };
+    } else {
+      document.body.style.overflowY = 'scroll';
+      document.body.style.overflowX = 'hidden';
+    }
+  }, []);
+
 
   const [sidebar, setSidebar] = useState(false)
 
@@ -93,8 +113,18 @@ const ShortStoriesPage = () => {
         }
       </div >
 
-      {!sidebar ? <Navbar /> : <Sidebar />}
-
+      {screenWidth < 1024 ? (
+        <div>
+          <Navbar />
+          <Footer />
+        </div>
+      ) : (!sidebar && screenWidth >= 1024 ? (
+        <Navbar />
+      ) : (sidebar && screenWidth >= 1024 ? (
+        <Sidebar />
+      ) : null)
+      )}
+    
     </div>
   );
 };

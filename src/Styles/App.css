@@ -78,14 +78,6 @@ h2 {
   text-align: center;
 }
 
-.blog-page-title {
-  font-family: 'Marcellus SC', serif;
-  font-size: 3rem;
-  padding-top: 10%;
-  padding-bottom: 3%;
-  text-align: center;
-}
-
 .blur-overlay {
   position: absolute;
   top: 0;
