@@ -29,17 +29,16 @@ export default function Navbar() {
                         : 'logo-text-logo'} />
                 </div>
 
-                <nav ref={navRef}>
+                <div className="nav" ref={navRef}>
                     <a href="/home">Home</a>
                     <a href="/articles">Articles</a>
                     <a href="/short-stories">Short Stories</a>
                     <a href="/about#">About</a>
-                    {/* <a href="/admin">[admin]</a> */}
 
                     <button className='nav-btn nav-close-btn' onClick={showNavbar}>
                         <FaTimes />
                     </button>
-                </nav>
+                </div>
 
                 <button className='nav-btn' onClick={showNavbar}>
                     <FaBars />

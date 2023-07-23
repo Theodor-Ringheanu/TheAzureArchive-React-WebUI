@@ -161,11 +161,21 @@ const ArticleLayout = () => {
   return (
     <Col key={article.id}>
       <div>
-        
-          <Navbar />
+
+        <Navbar />
 
         <div className={isLightOn ?
-          'tldr' : 'tldr tldr-light'}>
+          'tldr tldr-light': 'tldr'}>
+          <div>
+            {screenWidth >= 1440 ? (
+              <button className={isLightOn ?
+                'article-lightSwitch-on' 
+                : 'article-lightSwitch-off'}
+                onClick={handleLightSwitch}></button>
+            ) : (
+              <div />
+            )}
+          </div>
           {sections.map((section, index) => (
             <p
               key={index}
@@ -179,27 +189,26 @@ const ArticleLayout = () => {
 
         <div
           className={isLightOn ?
-            'article-title article-title-dark'
-            : 'article-title article-title-light'}>
+            'article-title article-title-light' 
+            : 'article-title article-title-dark'}>
           <h2>{article.author}</h2>
           <h1>{article.title}</h1>
           <h2>{publicationDate ? article.publicationDate : publicationDate} · {numWords} words · {Math.floor(numWords / 160)} mins read</h2>
+        </div>
+
+        <div className={isLightOn ?
+          'article-text article-text-light'
+          : 'article-text article-text-dark'}>
           <div>
-            {scrollPosition >= 1 && screenWidth > 500 ? (
-              <button className={isLightOn ? 'article-lightSwitch-off' : 'article-lightSwitch-on'}
-                onClick={handleLightSwitch}></button>
-            ) : screenWidth <= 500 ? (
-              <button className={isLightOn ? 'article-lightSwitch-off' : 'article-lightSwitch-on'}
+            {screenWidth <= 1440 ? (
+              <button className={isLightOn ? 
+                'article-lightSwitch-on' 
+                : 'article-lightSwitch-off'}
                 onClick={handleLightSwitch}></button>
             ) : (
               <div />
             )}
           </div>
-        </div>
-
-        <div className={isLightOn ?
-          'article-text article-text-dark' 
-          : 'article-text article-text-light'}>
           {paragraphs.map((paragraph, index) => (
             <React.Fragment key={index}>
               {paragraph}
@@ -219,8 +228,8 @@ const ArticleLayout = () => {
           <div
             className={
               isLightOn
-                ? "gradient-overlay gradient-overlay-dark"
-                : "gradient-overlay gradient-overlay-light"
+                ? "gradient-overlay gradient-overlay-light"
+                : "gradient-overlay gradient-overlay-dark"
             }
           ></div>
         </div>

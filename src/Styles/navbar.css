@@ -92,10 +92,11 @@
   font-size: 1.8rem;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1400px) {
   .navbar.active {
-    height: 10%;
+    height: 7.5%;
     width: 100%;
+    font-size: 3vh;
   }
 
   .navbar .nav-btn {
@@ -109,7 +110,7 @@
     width: 100%;
   }
 
-  .navbar nav {
+  .navbar .nav {
     position: fixed;
     top: 0;
     margin-left: 0;
@@ -127,7 +128,7 @@
         rgba(0, 2, 4, 1) 100%);
   }
 
-  .navbar nav a:hover {
+  .navbar .nav a:hover {
     border-radius: 6px;
     background-color: rgba(240, 230, 210, 0.2);
   }
