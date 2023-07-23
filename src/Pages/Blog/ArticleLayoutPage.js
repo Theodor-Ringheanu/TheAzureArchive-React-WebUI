@@ -164,12 +164,6 @@ const ArticleLayout = () => {
         
           <Navbar />
 
-        {/* <div className='app'>
-          <a href={`/article/EditArticle/${encodeURIComponent(article.id)}`} key={article.id}>
-            <h1>(edit)</h1>
-          </a>
-        </div> */}
-
         <div className={isLightOn ?
           'tldr' : 'tldr tldr-light'}>
           {sections.map((section, index) => (

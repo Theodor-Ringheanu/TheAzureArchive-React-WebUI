@@ -5,6 +5,7 @@ import Navbar from "../Components/Navbar.js";
 import Footer from "../Components/Footer.js";
 
 const AboutPage = () => {
+
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     useEffect(() => {
         const handleResize = () => {
@@ -38,61 +39,56 @@ const AboutPage = () => {
                 </div>
             </div>
 
-            {screenWidth => 1440 (
-            <div className='section'>
-                <div className='box two' id='faq'>
-                    <h2 id='contact'>Can I freely publish my own articles and stories?</h2>
-                    <h3>Of course, just hit us up at the <span style={{ textDecoration: 'underline', textDecorationColor: 'white' }}>azurearchive@gmail.com</span> and we’ll go from there.</h3>
-                    <h2>Is fanfiction allowed?</h2>
-                    <h3>As long as you have a written permission from the rightful owners or they’ve
-                        publicly stated being okay with fanfiction, I don't see why not.</h3>
-                    <h2>Would you do commissions or joint projects?</h2>
-                    <h3>Sure thing.</h3>
-                    <h2>Favourite author, setting, and story?</h2>
-                    <h3>Brandon Sanderson, Warhammer 40k, Arcane. I wanna see a mixture of the these before I die.</h3>
-                    <h2>Any advice for a fellow writer?</h2>
-                    <h3>Procrastination be a scrab in the dungbie.</h3>
-                    <h2>Cool art, who's the artist?</h2>
-                    <h3>Main credits go to Freepik, particulary to Liu Zishan for the stories page
-                        background. I recommend you check more of his concept art at makie.artstation.com.
-                        For the covers, it's either ai, public domain or the artists credited
-                        at the end of each page.</h3>
-                </div>
-
-                <div className='section-header two' id='Q&A'>
-                    <h1>Q&A</h1>
-                </div>
-
-            </div>
-            )}
-            :(
+            {screenWidth >= 1440 ? (
                 <div className='section'>
-
-                <div className='section-header' id='Q&A'>
-                    <h1>Q&A</h1>
+                    <div className='box two' id='faq'>
+                        <h2 id='contact'>Can I freely publish my own articles and stories?</h2>
+                        <h3>Of course, just hit us up at the <span style={{ textDecoration: 'underline', textDecorationColor: 'white' }}>azurearchive@gmail.com</span> and we’ll go from there.</h3>
+                        <h2>Is fanfiction allowed?</h2>
+                        <h3>As long as you have a written permission from the rightful owners or they’ve
+                            publicly stated being okay with fanfiction, I don't see why not.</h3>
+                        <h2>Would you do commissions or joint projects?</h2>
+                        <h3>Sure thing.</h3>
+                        <h2>Favourite author, setting, and story?</h2>
+                        <h3>Brandon Sanderson, Warhammer 40k, Arcane. I wanna see a mixture of the these before I die.</h3>
+                        <h2>Any advice for a fellow writer?</h2>
+                        <h3>Procrastination be a scrab in the dungbie.</h3>
+                        <h2>Cool art, who's the artist?</h2>
+                        <h3>Main credits go to Liu Zishan for the pages'
+                            backgrounds. I recommend you check more of his concept art at freepik.com/author/liuzishan.
+                            For the covers, it's either AI, public domain or the artists credited
+                            at the end of each publication.</h3>
+                    </div>
+                    <div className='section-header header-two' id='Q&A'>
+                        <h1>Q&A</h1>
+                    </div>
                 </div>
-
-                <div className='box two' id='faq'>
-                    <h2 id='contact'>Can I freely publish my own articles and stories?</h2>
-                    <h3>Of course, just hit us up at the <span style={{ textDecoration: 'underline', textDecorationColor: 'white' }}>azurearchive@gmail.com</span> and we’ll go from there.</h3>
-                    <h2>Is fanfiction allowed?</h2>
-                    <h3>As long as you have a written permission from the rightful owners or they’ve
-                        publicly stated being okay with fanfiction, I don't see why not.</h3>
-                    <h2>Would you do commissions or joint projects?</h2>
-                    <h3>Sure thing.</h3>
-                    <h2>Favourite author, setting, and story?</h2>
-                    <h3>Brandon Sanderson, Warhammer 40k, Arcane. I wanna see a mixture of the these before I die.</h3>
-                    <h2>Any advice for a fellow writer?</h2>
-                    <h3>Procrastination be a scrab in the dungbie.</h3>
-                    <h2>Cool art, who's the artist?</h2>
-                    <h3>Main credits go to Freepik, particulary to Liu Zishan for the stories page
-                        background. I recommend you check more of his concept art at makie.artstation.com.
-                        For the covers, it's either ai, public domain or the artists credited
-                        at the end of each page.</h3>
-                </div>
-            </div>
             )
-
+                : (
+                    <div className='section'>
+                        <div className='section-header header-two' id='Q&A'>
+                            <h1>Q&A</h1>
+                        </div>
+                        <div className='box two' id='faq'>
+                            <h2 id='contact'>Can I freely publish my own articles and stories?</h2>
+                            <h3>Of course, just hit us up at the <span style={{ textDecoration: 'underline', textDecorationColor: 'white' }}>azurearchive@gmail.com</span> and we’ll go from there.</h3>
+                            <h2>Is fanfiction allowed?</h2>
+                            <h3>As long as you have a written permission from the rightful owners or they’ve
+                                publicly stated being okay with fanfiction, I don't see why not.</h3>
+                            <h2>Would you do commissions or joint projects?</h2>
+                            <h3>Sure thing.</h3>
+                            <h2>Favourite author, setting, and story?</h2>
+                            <h3>Brandon Sanderson, Warhammer 40k, Arcane. I wanna see a mixture of the these before I die.</h3>
+                            <h2>Any advice for a fellow writer?</h2>
+                            <h3>Procrastination be a scrab in the dungbie.</h3>
+                            <h2>Cool art, who's the artist?</h2>
+                            <h3>Main credits go to Liu Zishan for the pages'
+                                backgrounds. I recommend you check more of his concept art at freepik.com/author/liuzishan.
+                                For the covers, it's either AI, public domain or the artists credited
+                                at the end of each publication.</h3>
+                        </div>
+                    </div>
+                )}
             <Footer />
         </div>
     );

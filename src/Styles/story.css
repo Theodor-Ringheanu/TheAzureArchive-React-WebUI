@@ -45,7 +45,7 @@
     text-align: left;
     width: 600px;
     margin: 0 auto;
-    margin-top: 50vh;
+    padding-top: 30vh;
     margin-bottom: 100px;
     line-height: 28px;
     z-index: 1;
@@ -64,12 +64,14 @@
 }
 
 .story-lightSwitch-off {
+    cursor: pointer;
     background-color: transparent;
     border: transparent;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     position: fixed;
-    margin-left: 8%;
+    margin-top: -55vh;
+    margin-left: 10vw;
     z-index: 12;
     background-image: url(../assets/Images/maketh_light.png);
     background-size: cover;
@@ -77,12 +79,14 @@
 }
 
 .story-lightSwitch-on {
+    cursor: pointer;
     background-color: transparent;
     border: transparent;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     position: fixed;
-    margin-left: 8%;
+    margin-top: -55vh;
+    margin-left: 10vw;
     z-index: 12;
     background-image: url(../assets/Images/maketh_dusk.png);
     background-size: cover;
@@ -138,7 +142,7 @@
         font-stretch: 100%;
         text-align: left;
         width: 80vw;
-        margin-top: 50vh;
+        padding-top: 50vh;
         margin-bottom: 100px;
         line-height: 28px;
         z-index: 1;
@@ -160,8 +164,8 @@
         height: 40px;
         width: 40px;
         position: absolute;
-        bottom: -20px;
-        margin-left: 46%;
+        bottom: -10%;
+        margin-left: 42vw;
         transition: .4s ease-in-out;
     }
 
@@ -169,8 +173,8 @@
         height: 40px;
         width: 40px;
         position: absolute;
-        bottom: -20px;
-        margin-left: 46%;
+        bottom: -10%;
+        margin-left: 42vw;
         transition: .4s ease-in-out;
     }
 

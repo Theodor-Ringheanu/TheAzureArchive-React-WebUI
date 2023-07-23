@@ -134,12 +134,14 @@
 }
 
 .article-lightSwitch-off {
+    cursor: pointer;
     background-color: transparent;
     border: transparent;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     position: fixed;
-    margin-left: 8%;
+    margin-left: -15vw;
+    margin-top: -15vh;
     z-index: 12;
     background-image: url(../assets/Images/maketh_light.png);
     background-size: cover;
@@ -147,12 +149,14 @@
 }
 
 .article-lightSwitch-on {
+    cursor: pointer;
     background-color: transparent;
     border: transparent;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     position: fixed;
-    margin-left: 8%;
+    margin-left: -15vw;
+    margin-top: -15vh;
     z-index: 12;
     background-image: url(../assets/Images/maketh_dusk.png);
     background-size: cover;

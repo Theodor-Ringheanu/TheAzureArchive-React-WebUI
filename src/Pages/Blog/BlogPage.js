@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../../Styles/App.css"
 import '../../Styles/edit.css';
 import '../../Styles/covers.css';
-import add_story from "../../assets/Images/add_story.jpg";
 import ArticleCover from "../../Components/ArticleCover";
 import Navbar from "../../Components/Navbar.js";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import Footer from "../../Components/Footer.js";
 
@@ -25,10 +23,8 @@ const BlogPage = () => {
 
   return (
     <div>
-
-      <React.Fragment>
+      
         <Navbar />
-      </React.Fragment>
 
       <div className="blog-page-background">
         <img />
@@ -47,21 +43,6 @@ const BlogPage = () => {
                   <ArticleCover article={article} />
                 </a>
               ))}
-
-            <div>
-              <Link to={`/AddArticle`}>
-                <div className="cover">
-                  <div >
-                  </div>
-                  <div>
-                    <img src={add_story}
-                      alt="add_article">
-                    </img>
-                  </div>
-
-                </div>
-              </Link>
-            </div>
           </div>
         ) : (
           <div className="empty">

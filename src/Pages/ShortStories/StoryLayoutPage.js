@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
@@ -96,13 +96,6 @@ const StoryLayout = () => {
       <Navbar />
 
       <div>
-
-        {/* <div className='app'>
-          <Link to={`/story/EditStory/${encodeURIComponent(story.id)}`} key={story.id}>
-            <h3>edit</h3>
-          </Link>
-        </div> */}
-
         <div
           className='story-title'
           style={{ opacity: opacity, }}>

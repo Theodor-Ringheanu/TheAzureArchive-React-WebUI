@@ -1,6 +1,15 @@
 node_modules
 .vscode
 src/assets
+src/App.js
+src/App
+src/Pages/Admin
+src/Pages/Admin/AdminPage
+src/Pages/Admin/AdminPage.js
+src/Pages/Admin/ArticleAdminPage
+src/Pages/Admin/ArticleAdminPage.js
+src/Pages/Admin/StoryAdminPage
+src/Pages/Admin/StoryAdminPage.js
 .DS_STORE
 node_modules
 scripts/flow/*/.flowconfig
@@ -26,3 +35,6 @@ chrome-user-data
 *.iml
 *.swp
 *.swo
+.gitignore
+src/App.js
+src/Pages/Admin/AdminPage.js

@@ -120,7 +120,7 @@ const HomePage = () => {
         <div className="hp-container-box" id='updates'>
           <div className='hp-container-box-heading'>
             <h2>
-              SIGN UP FOR MONTHLY UPDATES
+              SIGN UP FOR UPDATES
             </h2>
           </div>
           <div className='hp-container-box-formbox' id='formbox'>

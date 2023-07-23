@@ -16,10 +16,10 @@
 
 .header-img {
     background-image:
-        url(../assets/Images/fountain_background.jpg);
+        url(../assets/Images/legal-header.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: top;
     position: absolute;
     top: 0;
     width: 100%;

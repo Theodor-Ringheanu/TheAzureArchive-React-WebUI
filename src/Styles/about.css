@@ -7,7 +7,7 @@
     box-sizing: border-box;
     background-image: linear-gradient(rgba(54, 71, 86, 0.5),
             rgb(4, 6, 7)),
-        url(../assets/Images/mountain_background.png);
+        url(../assets/Images/strange-cave.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -26,7 +26,7 @@
 
 .section-header {
     width: 50%;
-    background-image: url(../assets/Images/puddle-frame.png);
+    background-image: url(../assets/Images/start-puddle.png);
     background-repeat: no-repeat;
     background-size: 80%;
     background-position: center;
@@ -36,8 +36,8 @@
     z-index: 2;
 }
 
-.section-header .two {
-    background-image: url(../assets/Images/old_paper_texture.jpg);
+.header-two {
+    background-image: url(../assets/Images/qa-puddle.png);
 }
 
 .section-header h1 {
@@ -150,6 +150,11 @@
             width: 90%;
             margin-left: 5%;
             margin-right: 5%;
+        }
+
+        .two h2,
+        .two h3{
+            text-align: right;
         }
     }
 }

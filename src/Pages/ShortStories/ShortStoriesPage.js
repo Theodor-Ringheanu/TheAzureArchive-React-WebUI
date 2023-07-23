@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../../Styles/App.css";
 import "../../Styles/covers.css";
-import add_story from "../../assets/Images/add_story.jpg";
 import StoryCover from "../../Components/StoryCover";
 import Navbar from "../../Components/Navbar.js";
 import Sidebar from "../../Components/Sidebar.js";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import Footer from "../../Components/Footer";
 
@@ -89,21 +87,6 @@ const ShortStoriesPage = () => {
                     <StoryCover story={story} />
                   </a>
                 ))}
-
-              <div>
-                <Link to={`/AddStory`}>
-                  <div className="story">
-                    <div >
-                    </div>
-                    <div>
-                      <img src={add_story}
-                        alt="add_story">
-                      </img>
-                    </div>
-
-                  </div>
-                </Link>
-              </div>
             </div>
           ) : (
             <div className="empty">
@@ -124,7 +107,7 @@ const ShortStoriesPage = () => {
         <Sidebar />
       ) : null)
       )}
-    
+
     </div>
   );
 };

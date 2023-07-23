@@ -97,11 +97,11 @@ h2 {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-image: url(../assets/Images/blog_background.jpg);
+  background-image: url(../assets/Images/the_azure_archive.jpg);
 }
 
 .story-page-background {
-  background-image: url(../assets/Images/mountain_castle2.avif);
+  background-image: url(../assets/Images/sea-shore.avif);
   position: fixed;
   z-index: -1;
   top: 0;

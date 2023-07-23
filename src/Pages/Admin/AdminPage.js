@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../../Styles/App.css"
 import Navbar from "../../Components/Navbar.js";
 import axios from "axios";
 import Footer from "../../Components/Footer.js";
+import add_story from "../../assets/Images/add_story.jpg";
+import ArticleCover from "../../Components/ArticleCover";
+import StoryCover from "../../Components/StoryCover";
 
 const AdminPage = () => {
   const [emails, setEmails] = useState([]);
@@ -50,10 +54,98 @@ const AdminPage = () => {
       });
   };
 
+  const [articles, setArticles] = useState([]);
+  const [stories, setStories] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://localhost:7080/api/Articles")
+      .then((response) => {
+        setArticles(response.data.value);
+      })
+    axios
+      .get("https://localhost:7080/api/Stories")
+      .then((response) => {
+        setStories(response.data.value);
+      })
+      .catch(() => {
+        alert('Failed to fetch content!');
+      });
+  }, []);
+
   return (
     <div>
 
       <Navbar />
+
+      <div>
+        {
+          articles?.length > 0 ? (
+            <div className="article-container">
+              {articles
+                .sort((a, b) => new Date(b.publicationDate) - new Date(a.publicationDate))
+                .map((article) => (
+                  <a href={`/article7bcdt4gw462/${encodeURIComponent(article.id)}`} key={article.id}>
+                    <ArticleCover article={article} />
+                  </a>
+                ))}
+
+              <div>
+                <Link to={`/AddArticle7bcdt4gw462`}>
+                  <div className="cover">
+                    <div >
+                    </div>
+                    <div>
+                      <img src={add_story}
+                        alt="add_article">
+                      </img>
+                    </div>
+
+                  </div>
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className="empty">
+              <h2></h2>
+            </div>
+          )
+        }
+      </div>
+
+      <div>
+        {
+          stories?.length > 0 ? (
+            <div className="article-container">
+              {stories
+                .sort((a, b) => new Date(b.publicationDate) - new Date(a.publicationDate))
+                .map((story) => (
+                  <a href={`/story7bcdt4gw462/${encodeURIComponent(story.id)}`} key={story.id}>
+                    <StoryCover story={story} />
+                  </a>
+                ))}
+
+              <div>
+                <Link to={`/AddStory7bcdt4gw462`}>
+                  <div className="story">
+                    <div >
+                    </div>
+                    <div>
+                      <img src={add_story}
+                        alt="add_story">
+                      </img>
+                    </div>
+
+                  </div>
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className="empty">
+              <h2></h2>
+            </div>
+          )
+        }
+      </div >
 
       <div className="app">
         <h1 style={{ padding: "5%" }
@@ -162,7 +254,8 @@ const AdminPage = () => {
           </tbody>
         </table>
       </div>
-
+      <div>
+      </div>
 
       <Footer />
 
