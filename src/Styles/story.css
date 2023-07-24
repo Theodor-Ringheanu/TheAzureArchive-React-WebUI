@@ -69,6 +69,7 @@
     border: transparent;
     height: 40px;
     width: 40px;
+    transform: translateX(-20px);
     position: fixed;
     margin-top: -55vh;
     margin-left: 10vw;
@@ -84,6 +85,7 @@
     border: transparent;
     height: 40px;
     width: 40px;
+    transform: translateX(-20px);
     position: fixed;
     margin-top: -55vh;
     margin-left: 10vw;
@@ -128,7 +130,7 @@
     }
 
     .story-title h1 {
-        font-size: 8vw;
+        font-size: 12vw;
     }
 
     .story-title h2 {
@@ -183,14 +185,20 @@
     }
 
     @media screen and (max-width: 500px) {
+
+        .scroller{
+            font-size: 0.8em;
+        }
+
         .story-lightSwitch-off,
         .story-lightSwitch-on {
-            margin-left: 10%;
+            margin-left: 50%;
+            margin-bottom: 5%;
         }
 
         .story-text {
             width: 80vw;
         }
-    
+
     }
 }

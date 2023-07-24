@@ -9,12 +9,7 @@ import Navbar from "../../Components/Navbar.js";
 const ArticleLayout = () => {
   const { id } = useParams();
   const [article, setArticle] = useState({});
-  const [publicationDate, setPublicationDate] = useState({});
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [paragraphs, setParagraphs] = useState([]);
-  const handleScroll = () => {
-    setScrollPosition(window.pageYOffset);
-  };
   const [numWords, setNumWords] = useState(0);
 
   const [sections, setSections] = useState([]);
@@ -106,6 +101,7 @@ const ArticleLayout = () => {
 
   console.log(article.publicationDate);
 
+  const [publicationDate, setPublicationDate] = useState({});
   useEffect(() => {
     if (article && article.publicationDate) {
       const date = new Date(article.publicationDate);
@@ -133,13 +129,6 @@ const ArticleLayout = () => {
 
   console.log(publicationDate);
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   const [isLightOn, setIsLightOn] = useState(false);
   const handleLightSwitch = () => {
     setIsLightOn(!isLightOn);
@@ -160,80 +149,153 @@ const ArticleLayout = () => {
 
   return (
     <Col key={article.id}>
+
+      <Navbar />
+
       <div>
+        {screenWidth > 900 ?
+          (
+            <div>
+              <div className={isLightOn ?
+                'tldr tldr-light' : 'tldr'}>
+                <div>
+                  {screenWidth >= 1440 ? (
+                    <button className={isLightOn ?
+                      'article-lightSwitch-on'
+                      : 'article-lightSwitch-off'}
+                      onClick={handleLightSwitch}></button>
+                  ) : (
+                    <div />
+                  )}
+                </div>
+                {sections.map((section, index) => (
+                  <p
+                    key={index}
+                    onClick={() => handleClick(section.index)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {section.text}
+                  </p>
+                ))}
+              </div>
 
-        <Navbar />
+              <div
+                className={isLightOn ?
+                  'article-title article-title-light'
+                  : 'article-title article-title-dark'}>
+                <h2>{article.author}</h2>
+                <h1>{article.title}</h1>
+                <h2>{typeof publicationDate === 'string' ? publicationDate : ''} · {numWords} words · {Math.floor(numWords / 160)} mins read</h2>
+              </div>
 
-        <div className={isLightOn ?
-          'tldr tldr-light': 'tldr'}>
-          <div>
-            {screenWidth >= 1440 ? (
-              <button className={isLightOn ?
-                'article-lightSwitch-on' 
-                : 'article-lightSwitch-off'}
-                onClick={handleLightSwitch}></button>
-            ) : (
-              <div />
-            )}
-          </div>
-          {sections.map((section, index) => (
-            <p
-              key={index}
-              onClick={() => handleClick(section.index)}
-              style={{ cursor: 'pointer' }}
-            >
-              {section.text}
-            </p>
-          ))}
-        </div>
+              <div className={isLightOn ?
+                'article-text article-text-light'
+                : 'article-text article-text-dark'}>
+                <div>
+                  {screenWidth <= 1440 ? (
+                    <button className={isLightOn ?
+                      'article-lightSwitch-on'
+                      : 'article-lightSwitch-off'}
+                      onClick={handleLightSwitch}>
+                      </button>
+                  ) : (
+                    <div />
+                  )}
+                </div>
+                {paragraphs.map((paragraph, index) => (
+                  <React.Fragment key={index}>
+                    {paragraph}
+                    {index !== paragraphs.length - 1 && <br />}
+                    <span id={`section-${index + 1}`}></span>
+                  </React.Fragment>
+                ))}
+              </div>
 
-        <div
-          className={isLightOn ?
-            'article-title article-title-light' 
-            : 'article-title article-title-dark'}>
-          <h2>{article.author}</h2>
-          <h1>{article.title}</h1>
-          <h2>{publicationDate ? article.publicationDate : publicationDate} · {numWords} words · {Math.floor(numWords / 160)} mins read</h2>
-        </div>
+              <div className="article-background">
+                <div
+                  className="blur-overlay"
+                  style={{
+                    backgroundImage: `url(${article.imageUrl})`,
+                  }}
+                ></div>
+                <div
+                  className={
+                    isLightOn
+                      ? "gradient-overlay gradient-overlay-light"
+                      : "gradient-overlay gradient-overlay-dark"
+                  }>
+                </div>
+              </div>
+            </div>
 
-        <div className={isLightOn ?
-          'article-text article-text-light'
-          : 'article-text article-text-dark'}>
-          <div>
-            {screenWidth <= 1440 ? (
-              <button className={isLightOn ? 
-                'article-lightSwitch-on' 
-                : 'article-lightSwitch-off'}
-                onClick={handleLightSwitch}></button>
-            ) : (
-              <div />
-            )}
-          </div>
-          {paragraphs.map((paragraph, index) => (
-            <React.Fragment key={index}>
-              {paragraph}
-              {index !== paragraphs.length - 1 && <br />}
-              <span id={`section-${index + 1}`}></span>
-            </React.Fragment>
-          ))}
-        </div>
+          )
+          : (
 
-        <div className="article-background">
-          <div
-            className="blur-overlay"
-            style={{
-              backgroundImage: `url(${article.imageUrl})`,
-            }}
-          ></div>
-          <div
-            className={
-              isLightOn
-                ? "gradient-overlay gradient-overlay-light"
-                : "gradient-overlay gradient-overlay-dark"
-            }
-          ></div>
-        </div>
+            <div>
+              <div className={isLightOn ?
+                'tldr tldr-light' : 'tldr'}>
+                {sections.map((section, index) => (
+                  <p
+                    key={index}
+                    onClick={() => handleClick(section.index)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {section.text}
+                  </p>
+                ))}
+              </div>
+
+              <div
+                className={isLightOn ?
+                  'article-title article-title-dark'
+                  : 'article-title article-title-light'}>
+                <h2>{article.author}</h2>
+                <h1>{article.title}</h1>
+                <h2>{typeof publicationDate === 'string' ? publicationDate : ''} · {numWords} words · {Math.floor(numWords / 160)} mins read</h2>
+              </div>
+
+              <div className={isLightOn ?
+                'article-text article-text-dark'
+                : 'article-text article-text-light'}>
+                <div>
+                  {screenWidth <= 1440 ? (
+                    <button className={isLightOn ?
+                      'article-lightSwitch-off'
+                      : 'article-lightSwitch-on'}
+                      onClick={handleLightSwitch}></button>
+                  ) : (
+                    <div />
+                  )}
+                </div>
+                {paragraphs.map((paragraph, index) => (
+                  <React.Fragment key={index}>
+                    {paragraph}
+                    {index !== paragraphs.length - 1 && <br />}
+                    <span id={`section-${index + 1}`}></span>
+                  </React.Fragment>
+                ))}
+              </div>
+
+              <div className="article-background">
+                <div
+                  className="blur-overlay"
+                  style={{
+                    backgroundImage: `url(${article.imageUrl})`,
+                  }}
+                ></div>
+                <div
+                  className={
+                    isLightOn
+                      ? "gradient-overlay gradient-overlay-dark"
+                      : "gradient-overlay gradient-overlay-light"
+                  }>
+                </div>
+              </div>
+            </div>
+          )}
       </div>
+
+
 
       <Footer />
     </Col>

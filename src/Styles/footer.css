@@ -108,3 +108,9 @@ hr {
         height: auto;
     }
 }
+
+@media screen and (max-width: 280px) {
+    .ft_footer-below p{
+        font-size: 11px;
+    }
+}

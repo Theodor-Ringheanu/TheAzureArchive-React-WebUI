@@ -150,11 +150,21 @@
             width: 90%;
             margin-left: 5%;
             margin-right: 5%;
+
         }
 
         .two h2,
-        .two h3{
+        .two h3 {
             text-align: right;
         }
+    }
+
+    @media only screen and (max-width: 260px) {
+
+        .box,
+        .two {
+            width: 80%;
+        }
+
     }
 }

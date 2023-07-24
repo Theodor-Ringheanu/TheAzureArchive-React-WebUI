@@ -1,11 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ArticleCover = ({ article }) => {
+    const [publicationDate, setPublicationDate] = useState({});
+
+    useEffect(() => {
+        if (article && article.publicationDate) {
+            const date = new Date(article.publicationDate);
+            const months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+            ];
+            const monthName = months[date.getMonth()];
+            const day = date.getDate();
+            const year = date.getFullYear();
+            const _publicationDate = `${day} ${monthName} ${year}`;
+            setPublicationDate(_publicationDate);
+        }
+    }, [article]);
+
     return (
         <div className='article-box'>
             <div className="article">
                 <div style={{ zIndex: 3 }}>
-                    <span>{article.publicationDate}</span>
+                    <span>{typeof publicationDate === 'string' ? publicationDate : ''}</span>
                 </div>
 
                 <div>

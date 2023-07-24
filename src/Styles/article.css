@@ -56,7 +56,7 @@
 }
 
 .article-title-dark h2 {
-    font-size: 16px;
+    font-size: 1.2rem;
     letter-spacing: 1px;
     background: linear-gradient(90deg,
             rgba(249, 211, 180, 1) 100%,
@@ -70,7 +70,7 @@
 }
 
 .article-title-light h2 {
-    font-size: 16px;
+    font-size: 1.2rem;
     letter-spacing: 1px;
     background: linear-gradient(90deg,
             rgb(46, 61, 73) 100%,
@@ -137,8 +137,9 @@
     border: transparent;
     height: 40px;
     width: 40px;
+    transform: translateX(-20px);
     position: absolute;
-    left: -15%;
+    left: -10%;
     top: 30%;
     z-index: 12;
     background-image: url(../assets/Images/maketh_light.png);
@@ -152,8 +153,9 @@
     border: transparent;
     height: 40px;
     width: 40px;
+    transform: translateX(-20px);
     position: absolute;
-    left: -15%;
+    left: -10%;
     top: 30%;
     z-index: 12;
     background-image: url(../assets/Images/maketh_dusk.png);
@@ -242,7 +244,7 @@
     }
 
     .article-title-light h2 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .article-title-dark {
@@ -256,7 +258,7 @@
     }
 
     .article-title-dark h2 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .tldr {
