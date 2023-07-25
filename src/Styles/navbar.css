@@ -92,7 +92,7 @@
   font-size: 1.8rem;
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1440px) {
   .navbar.active {
     height: 7.5%;
     width: 100%;

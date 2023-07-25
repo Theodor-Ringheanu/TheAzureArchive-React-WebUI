@@ -35,7 +35,7 @@ const ShortStoriesPage = () => {
   }, []);
 
   useEffect(() => {
-    if (screenWidth >= 1024) {
+    if (screenWidth > 1440) {
       document.body.style.overflowY = 'hidden';
       document.body.style.overflowX = 'scroll';
       const handleWheel = (e) => {
@@ -96,14 +96,14 @@ const ShortStoriesPage = () => {
         }
       </div >
 
-      {screenWidth < 1024 ? (
+      {screenWidth <= 1440 ? (
         <div>
           <Navbar />
           <Footer />
         </div>
-      ) : (!sidebar && screenWidth >= 1024 ? (
+      ) : (!sidebar && screenWidth > 1440 ? (
         <Navbar />
-      ) : (sidebar && screenWidth >= 1024 ? (
+      ) : (sidebar && screenWidth > 1440 ? (
         <Sidebar />
       ) : null)
       )}

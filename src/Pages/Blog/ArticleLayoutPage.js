@@ -103,8 +103,9 @@ const ArticleLayout = () => {
 
   const [publicationDate, setPublicationDate] = useState({});
   useEffect(() => {
-    if (article && article.publicationDate) {
-      const date = new Date(article.publicationDate);
+    const publicationDate = article?.publicationDate;
+    if (publicationDate) {
+      const date = new Date(publicationDate);
       const months = [
         "January",
         "February",
@@ -197,7 +198,7 @@ const ArticleLayout = () => {
                       'article-lightSwitch-on'
                       : 'article-lightSwitch-off'}
                       onClick={handleLightSwitch}>
-                      </button>
+                    </button>
                   ) : (
                     <div />
                   )}

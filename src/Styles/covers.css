@@ -279,6 +279,34 @@
   transition: .2s ease;
 }
 
+@media only screen and (max-width: 1440px) {
+  .story-intro {
+    position: relative;
+    font-size: 2.5rem;
+    padding: 25vh 0vh 15vh 0vh;
+  }
+
+  .story-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-height: initial;
+    max-width: inherit;
+    background-color: transparent;
+  }
+
+  .story-container .story {
+    margin: 2vh;
+    width: 362px;
+    height: 472px;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .blog-page-title {
     position: relative;
@@ -322,5 +350,7 @@
     margin: 2vh;
     height: 75vh;
     width: 80vw;
+    max-height: initial;
+    max-width: inherit;
   }
 }
